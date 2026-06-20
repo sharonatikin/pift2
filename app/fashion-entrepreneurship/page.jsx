@@ -15,7 +15,7 @@ import Image from 'next/image';
 
 export default function Page() {
   // Tracking open index state for smooth accordion drawer toggles
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const overviewCards = [
     {

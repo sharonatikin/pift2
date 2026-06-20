@@ -27,7 +27,7 @@ import {
 
 export default function Page() {
   // Tracking open index state for smooth accordion drawer toggles
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const snapshotItems = [
     { label: 'Duration', value: '3 Years' },
