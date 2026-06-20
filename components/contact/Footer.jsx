@@ -11,7 +11,7 @@ export default function Footer() {
               <small>PINNACLE INSTITUTE OF FASHION TECHNOLOGY</small>
             </div>
           </div>
-          <p>Shaping India's fashion future since 2000. Campuses in Mumbai, Delhi, Bengaluru & Kolkata.</p>
+          <p>Shaping India&apos;s fashion future since 2000. Campuses in Mumbai, Delhi, Bengaluru & Kolkata.</p>
           <div className={styles.footerSocial}>
             <a href="#">📷</a><a href="#">🐦</a><a href="#">▶</a><a href="#">💼</a>
           </div>
