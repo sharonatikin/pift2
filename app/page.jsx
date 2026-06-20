@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 import { 
   ArrowRight, 
   ArrowUpRight, 
@@ -218,7 +219,14 @@ export default function PiftInstitutionalPage() {
           </div>
           <div className="lg:col-span-6 relative w-full flex justify-center lg:justify-end items-center mt-8 lg:mt-0">
             <div className="relative w-full max-w-[540px] aspect-[4/5] rounded-[2.5rem] overflow-hidden group shadow-2xl">
-              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800" alt="Runway Backstage Model" className="w-full h-full object-cover grayscale brightness-95 contrast-105 scale-105 transition-transform duration-700 group-hover:scale-100" />
+              <Image 
+                src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800" 
+                alt="Runway Backstage Model" 
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 540px"
+                priority
+                className="w-full h-full object-cover grayscale brightness-95 contrast-105 scale-105 transition-transform duration-700 group-hover:scale-100" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 mix-blend-multiply" />
               <div className="absolute top-[8%] left-[4%] backdrop-blur-md bg-black/40 border border-white/10 rounded-2xl p-4 min-w-[130px]"><div className="text-xl md:text-2xl font-bold font-sans text-[#e11d48]">12K+</div><div className="text-[10px] md:text-xs text-stone-400 tracking-wider font-light">Alumni Worldwide</div></div>
               <div className="absolute top-[38%] right-[4%] backdrop-blur-md bg-black/40 border border-white/10 rounded-2xl p-4 min-w-[130px]"><div className="text-xl md:text-2xl font-bold font-sans text-[#e11d48]">97%</div><div className="text-[10px] md:text-xs text-stone-400 tracking-wider font-light">Placement Rate</div></div>
@@ -274,14 +282,32 @@ export default function PiftInstitutionalPage() {
         <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-12 gap-4 h-full w-full max-w-[580px] mx-auto lg:mx-0">
             <div className="sm:col-span-6 relative aspect-[4/6] sm:aspect-auto sm:h-[460px] rounded-[2rem] overflow-hidden group shadow-xl">
-              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600" alt="Tall Studio Render" className="w-full h-full object-cover grayscale brightness-90 transition-transform duration-700 group-hover:scale-105" />
+              <Image 
+                src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=600" 
+                alt="Tall Studio Render" 
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                className="w-full h-full object-cover grayscale brightness-90 transition-transform duration-700 group-hover:scale-105" 
+              />
             </div>
             <div className="sm:col-span-6 flex flex-col gap-4 h-full justify-between">
               <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden group shadow-xl">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600" alt="Interior Segment" className="w-full h-full object-cover brightness-95 transition-transform duration-700 group-hover:scale-105" />
+                <Image 
+                  src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=600" 
+                  alt="Interior Segment" 
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                  className="w-full h-full object-cover brightness-95 transition-transform duration-700 group-hover:scale-105" 
+                />
               </div>
               <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden group shadow-xl">
-                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=600" alt="Living Architecture" className="w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-105" />
+                <Image 
+                  src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=600" 
+                  alt="Living Architecture" 
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 280px"
+                  className="w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-105" 
+                />
               </div>
             </div>
           </div>
@@ -332,7 +358,13 @@ export default function PiftInstitutionalPage() {
               <div key={idx} className="bg-[#111111]/40 backdrop-blur-sm border border-stone-900 rounded-[2rem] p-5 flex flex-col justify-between group transition-all duration-300 hover:border-stone-800/80 hover:bg-[#111111]/70">
                 <div>
                   <div className="relative w-full aspect-[4/3] rounded-[1.5rem] overflow-hidden mb-5">
-                    <img src={program.imageUrl} alt={program.title} className="w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.05] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-95" />
+                    <Image 
+                      src={program.imageUrl} 
+                      alt={program.title} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 360px"
+                      className="w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.05] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-95" 
+                    />
                   </div>
                   <div className="flex items-center space-x-1.5 text-[#ff4646] text-[11px] font-semibold tracking-wider mb-2.5 font-sans">
                     <Clock className="w-3.5 h-3.5 stroke-[2.5]" /><span>{program.duration}</span>
@@ -394,7 +426,13 @@ export default function PiftInstitutionalPage() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 w-full max-w-6xl mx-auto">
             {infraItems.map((item, idx) => (
               <div key={idx} className={`relative rounded-[2rem] overflow-hidden border border-stone-900/40 bg-[#111111]/20 group shadow-xl transition-all duration-300 hover:border-stone-800/80 ${item.gridClasses}`}>
-                <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover grayscale brightness-[0.80] contrast-[1.05] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-90" />
+                <Image 
+                  src={item.imageUrl} 
+                  alt={item.title} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 760px"
+                  className="w-full h-full object-cover grayscale brightness-[0.80] contrast-[1.05] transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 group-hover:brightness-90" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-90 transition-opacity duration-300 group-hover:from-black/90" />
                 <div className="absolute bottom-6 left-6">
                   <span className="inline-block bg-[#161616]/70 backdrop-blur-md border border-white/5 text-stone-300 group-hover:text-white font-sans text-xs md:text-sm font-medium tracking-wide py-2.5 px-5 rounded-full transition-colors duration-300 shadow-lg">{item.title}</span>
@@ -454,7 +492,13 @@ export default function PiftInstitutionalPage() {
               <div key={idx} className="bg-[#111111]/40 backdrop-blur-sm border border-stone-900 rounded-[2rem] p-5 flex flex-col justify-between group transition-all duration-300 hover:border-stone-800/80 hover:bg-[#111111]/70 shadow-xl">
                 <div>
                   <div className="relative w-full aspect-[16/10] rounded-[1.5rem] overflow-hidden mb-5">
-                    <img src={story.imageUrl} alt={story.title} className="w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.02] transition-transform duration-700 group-hover:scale-103 group-hover:grayscale-0 group-hover:brightness-95" />
+                    <Image 
+                      src={story.imageUrl} 
+                      alt={story.title} 
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 360px"
+                      className="w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.02] transition-transform duration-700 group-hover:scale-103 group-hover:grayscale-0 group-hover:brightness-95" 
+                    />
                   </div>
                   <div className="mb-4"><span className="inline-block bg-[#ff4646]/10 text-[#ff4646] text-[10px] font-semibold tracking-wider px-3 py-1.5 rounded-full font-sans">{story.category}</span></div>
                   <h3 className="text-lg md:text-xl font-serif text-stone-100 tracking-wide mb-3 leading-snug group-hover:text-white line-clamp-2 transition-colors duration-300">{story.title}</h3>
@@ -505,7 +549,7 @@ export default function PiftInstitutionalPage() {
         </div>
       </section>
 
-      {/* SECTION 11: INDUSTRY PARTNERS ROW (MARQUEE SIMULATION) */}
+      {/* SECTION 11: INDUSTRY PARTNERS ROW */}
       <section className="w-full py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
@@ -533,7 +577,7 @@ export default function PiftInstitutionalPage() {
         </div>
       </section>
 
-      {/* SECTION 12: ALUMNI SUCCESS (SLIDER INTERACTIVE TESTIMONIALS) */}
+      {/* SECTION 12: ALUMNI SUCCESS */}
       <section className="w-full py-24 px-4 md:px-8">
         <div className="max-w-7xl mx-auto flex flex-col items-center">
           <div className="flex items-center justify-center space-x-3 mb-4">
@@ -551,8 +595,14 @@ export default function PiftInstitutionalPage() {
             </div>
             <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8 mt-12 pt-8 border-t border-stone-900/50">
               <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 rounded-full overflow-hidden border border-stone-800 shrink-0">
-                  <img src={testimonials[activeTestimonial].avatarUrl} alt={testimonials[activeTestimonial].name} className="w-full h-full object-cover grayscale" />
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-stone-800 shrink-0">
+                  <Image 
+                    src={testimonials[activeTestimonial].avatarUrl} 
+                    alt={testimonials[activeTestimonial].name} 
+                    fill
+                    sizes="48px"
+                    className="w-full h-full object-cover grayscale" 
+                  />
                 </div>
                 <div className="flex flex-col">
                   <h4 className="text-stone-100 text-sm md:text-base font-sans font-semibold tracking-wide">{testimonials[activeTestimonial].name}</h4>
@@ -623,7 +673,6 @@ export default function PiftInstitutionalPage() {
       <section className="w-full bg-[#09090b] text-white py-20 px-4 md:px-8 overflow-hidden select-none">
       <div className="max-w-7xl mx-auto flex flex-col">
         
-        {/* Top Header Area */}
         <div className="flex flex-col space-y-3 mb-4">
           <div className="flex items-center space-x-3">
             <div className="h-[1.5px] w-6 bg-[#ff4646]" />
@@ -646,15 +695,16 @@ export default function PiftInstitutionalPage() {
           </a>
         </div>
 
-        {/* Complex Asymmetric Masonry Architecture Grid Loop */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 w-full max-w-6xl mx-auto items-stretch">
           
           {/* Row Segment 1: Upper Blocks */}
           <div className="md:col-span-4 flex flex-col justify-between">
-            <div className={`${galleryItems[0].gridClasses} relative rounded-[1.8rem] overflow-hidden border border-stone-900/60 bg-[#111111]/20 group shadow-lg w-full h-full`}>
-              <img
+            <div className="relative rounded-[1.8rem] overflow-hidden border border-stone-900/60 bg-[#111111]/20 group shadow-lg w-full h-full min-h-[300px]">
+              <Image
                 src={galleryItems[0].imageUrl}
                 alt={galleryItems[0].title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="w-full h-full object-cover grayscale brightness-[0.80] contrast-[1.05] transition-transform duration-700 group-hover:scale-103 group-hover:grayscale-0 group-hover:brightness-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -668,9 +718,11 @@ export default function PiftInstitutionalPage() {
 
           <div className="md:col-span-8 grid grid-cols-1 md:grid-cols-8 gap-5">
             <div className="md:col-span-4 relative rounded-[1.8rem] overflow-hidden border border-stone-900/60 bg-[#111111]/20 group shadow-lg aspect-[21/9] md:h-[76px]">
-              <img
+              <Image
                 src={galleryItems[1].imageUrl}
                 alt={galleryItems[1].title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.02] transition-transform duration-700 group-hover:scale-103 group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -682,9 +734,11 @@ export default function PiftInstitutionalPage() {
             </div>
 
             <div className="md:col-span-4 relative rounded-[1.8rem] overflow-hidden border border-stone-900/60 bg-[#111111]/20 group shadow-lg aspect-[21/9] md:h-[76px]">
-              <img
+              <Image
                 src={galleryItems[2].imageUrl}
                 alt={galleryItems[2].title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.02] transition-transform duration-700 group-hover:scale-103 group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -696,9 +750,11 @@ export default function PiftInstitutionalPage() {
             </div>
 
             <div className="md:col-span-8 relative rounded-[1.8rem] overflow-hidden border border-stone-900/60 bg-[#111111]/20 group shadow-lg aspect-[32/9] md:h-[88px]">
-              <img
+              <Image
                 src={galleryItems[3].imageUrl}
                 alt={galleryItems[3].title}
+                fill
+                sizes="(max-width: 768px) 100vw, 66vw"
                 className="w-full h-full object-cover grayscale brightness-[0.80] contrast-[1.05] transition-transform duration-700 group-hover:scale-102 group-hover:grayscale-0"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
@@ -712,9 +768,11 @@ export default function PiftInstitutionalPage() {
 
           {/* Row Segment 2: Large Vertical Blocks */}
           <div className="md:col-span-6 relative rounded-[1.8rem] overflow-hidden border border-stone-900/60 bg-[#111111]/20 group shadow-lg aspect-[3/4] md:h-[460px]">
-            <img
+            <Image
               src={galleryItems[4].imageUrl}
               alt={galleryItems[4].title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="w-full h-full object-cover grayscale brightness-[0.85] contrast-[1.05] transition-transform duration-700 group-hover:scale-103 group-hover:grayscale-0 group-hover:brightness-95"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
@@ -726,9 +784,11 @@ export default function PiftInstitutionalPage() {
           </div>
 
           <div className="md:col-span-6 relative rounded-[1.8rem] overflow-hidden border border-stone-900/60 bg-[#111111]/20 group shadow-lg aspect-[3/4] md:h-[460px]">
-            <img
+            <Image
               src={galleryItems[5].imageUrl}
               alt={galleryItems[5].title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="w-full h-full object-cover grayscale brightness-[0.80] contrast-[1.02] transition-transform duration-700 group-hover:scale-103 group-hover:grayscale-0 group-hover:brightness-95"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />

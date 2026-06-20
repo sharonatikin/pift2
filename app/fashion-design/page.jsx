@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 import { ArrowDown, Sparkles, Compass, Globe, Diamond, Briefcase, Globe2, Quote } from 'lucide-react';
-
 
 export default function FashionDesignProgramPage() {
   // State for Curriculum Semester Tab Selector
@@ -128,7 +128,7 @@ export default function FashionDesignProgramPage() {
   const portfolioCollections = [
     { tag: 'Evening', title: 'Luxury Wear', image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80', aspectClass: 'aspect-[3/4] lg:h-[480px]' },
     { tag: 'Urban', title: 'Streetwear', image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80', aspectClass: 'aspect-[1/1] lg:h-[380px] lg:mt-12' },
-    { tag: 'Eco', title: 'Sustainable Fashion', image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80', aspectClass: 'aspect-[3/4] lg:h-[480px]' },
+    { tag: 'Eco', title: 'Sustainable Fashion', image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=600&q=80', aspectClass: 'aspect-[3/4] lg:h-[480px]' },
     { tag: 'Heritage', title: 'Ethnic Wear', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=600&q=80', aspectClass: 'aspect-[3/4] lg:h-[480px] lg:-mt-12' },
     { tag: 'Bridal', title: 'Bridal Collections', image: 'https://images.unsplash.com/photo-1594552072238-b8a33785b261?auto=format&fit=crop&w=600&q=80', aspectClass: 'aspect-[1/1] lg:h-[380px] lg:mt-4' },
     { tag: 'Avant-Garde', title: 'Experimental Fashion', image: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80', aspectClass: 'aspect-[3/4] lg:h-[480px] lg:-mt-12' }
@@ -183,7 +183,7 @@ export default function FashionDesignProgramPage() {
   ];
 
   return (
-    <div className="bg-[#050505] text-white font-sans antialiased selection:bg-[#E31C3D] selection:text-white overflow-x-hidden">
+    <div className="w-full bg-[#050505] text-white font-sans antialiased selection:bg-[#E31C3D] selection:text-white overflow-x-hidden">
       
       {/* 1. HERO MAIN STACK SECTION */}
       <header className="min-h-screen bg-[#070707] flex flex-col justify-between border-b border-zinc-950">
@@ -223,7 +223,14 @@ export default function FashionDesignProgramPage() {
             <div className="lg:col-span-5 relative flex justify-center lg:justify-end w-full pt-12 lg:pt-0">
               <div className="absolute inset-0 border border-gray-900/40 transform translate-x-4 translate-y-4 pointer-events-none hidden lg:block" />
               <div className="relative w-full max-w-[420px] aspect-[3/4] border border-gray-900 bg-[#0d0d0d] p-0.5">
-                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Runway Model" className="w-full h-full object-cover grayscale brightness-[0.7] contrast-[1.1]" />
+                <Image 
+                  src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" 
+                  alt="Runway Model" 
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 420px"
+                  priority
+                  className="object-cover grayscale brightness-[0.7] contrast-[1.1]" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute -bottom-8 -right-4 w-24 h-24 border border-[#E31C3D]/20 hidden sm:block pointer-events-none" />
               </div>
@@ -249,17 +256,41 @@ export default function FashionDesignProgramPage() {
         <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="lg:col-span-6 grid grid-cols-2 gap-4 h-full auto-rows-fr relative">
             <div className="absolute -left-4 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-[#E31C3D]/40 to-transparent hidden lg:block" />
-            <div className="overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[320px]">
-              <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Sketches" className="w-full h-full object-cover grayscale brightness-90 contrast-105" />
+            <div className="relative overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[320px]">
+              <Image 
+                src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" 
+                alt="Sketches" 
+                fill
+                sizes="(max-width: 1024px) 50vw, 300px"
+                className="object-cover grayscale brightness-90 contrast-105" 
+              />
             </div>
-            <div className="overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[280px] lg:mt-8">
-              <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" alt="Textiles" className="w-full h-full object-cover brightness-100 contrast-110" />
+            <div className="relative overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[280px] lg:mt-8">
+              <Image 
+                src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=600&q=80" 
+                alt="Textiles" 
+                fill
+                sizes="(max-width: 1024px) 50vw, 300px"
+                className="object-cover brightness-100 contrast-110" 
+              />
             </div>
-            <div className="overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[280px] lg:-mt-4">
-              <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" alt="Tools" className="w-full h-full object-cover grayscale brightness-50 contrast-125" />
+            <div className="relative overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[280px] lg:-mt-4">
+              <Image 
+                src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80" 
+                alt="Tools" 
+                fill
+                sizes="(max-width: 1024px) 50vw, 300px"
+                className="object-cover grayscale brightness-50 contrast-125" 
+              />
             </div>
-            <div className="overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[320px] lg:-mt-14">
-              <img src="https://images.unsplash.com/photo-1528851567897-50f53227a403?auto=format&fit=crop&w=600&q=80" alt="Threads" className="w-full h-full object-cover brightness-95 contrast-105" />
+            <div className="relative overflow-hidden bg-[#111] aspect-[3/4] lg:aspect-auto lg:h-[320px] lg:-mt-14">
+              <Image 
+                src="https://images.unsplash.com/photo-1528851567897-50f53227a403?auto=format&fit=crop&w=600&q=80" 
+                alt="Threads" 
+                fill
+                sizes="(max-width: 1024px) 50vw, 300px"
+                className="object-cover brightness-95 contrast-105" 
+              />
             </div>
           </div>
           <div className="lg:col-span-6 space-y-8 lg:pl-4">
@@ -393,7 +424,13 @@ export default function FashionDesignProgramPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 pt-8">
             {studioFacilities.map((facility, index) => (
               <div key={index} className={`relative overflow-hidden group bg-[#0D0D0D] border border-zinc-900/60 ${facility.gridSpanClass} ${facility.aspectClass}`}>
-                <img src={facility.image} alt={facility.title} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 brightness-75 contrast-105 grayscale group-hover:grayscale-0 group-hover:brightness-90" />
+                <Image 
+                  src={facility.image} 
+                  alt={facility.title} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 750px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 brightness-75 contrast-105 grayscale group-hover:grayscale-0 group-hover:brightness-90" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 p-6 sm:p-8">
                   <h3 className="text-sm sm:text-base font-medium tracking-wide text-zinc-100 group-hover:text-white transition-colors duration-200">{facility.title}</h3>
@@ -411,7 +448,13 @@ export default function FashionDesignProgramPage() {
           <div className="lg:col-span-6 relative flex justify-center lg:justify-start w-full">
             <div className="absolute top-0 right-4 lg:right-12 w-20 h-20 border border-[#E31C3D]/20 hidden sm:block pointer-events-none" />
             <div className="relative w-full max-w-[480px] aspect-[4/5] bg-[#0A0A0A] border border-zinc-900/60 p-0.5">
-              <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" alt="Runway" className="w-full h-full object-cover grayscale brightness-50 contrast-110" />
+              <Image 
+                src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" 
+                alt="Runway" 
+                fill
+                sizes="(max-width: 1024px) 100vw, 480px"
+                className="object-cover grayscale brightness-50 contrast-110" 
+              />
               <div className="absolute bottom-6 left-6 bg-[#E31C3D] text-white p-6 sm:p-8 md:p-10 max-w-[180px] sm:max-w-[220px] aspect-square flex flex-col justify-center">
                 <span className="block font-serif text-3xl sm:text-4xl md:text-[44px] font-normal leading-none tracking-tight">97%</span>
                 <span className="block text-[10px] sm:text-[11px] font-semibold tracking-[0.15em] uppercase text-white/90 mt-2 leading-tight">Placement Rate</span>
@@ -474,7 +517,13 @@ export default function FashionDesignProgramPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 lg:gap-y-6 items-start pt-4">
             {portfolioCollections.map((item, index) => (
               <div key={index} className={`relative overflow-hidden group bg-[#0D0D0D] border border-zinc-900/40 w-full flex flex-col justify-end ${item.aspectClass}`}>
-                <img src={item.image} alt={item.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.65] contrast-[1.05] grayscale group-hover:grayscale-0" />
+                <Image 
+                  src={item.image} 
+                  alt={item.title} 
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 380px"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 brightness-[0.65] contrast-[1.05] grayscale group-hover:grayscale-0" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent pointer-events-none" />
                 <div className="relative z-10 p-6 sm:p-8 space-y-2 mt-auto">
                   <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-[#E31C3D] block">

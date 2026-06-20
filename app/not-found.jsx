@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 import { 
   Menu, 
   X, 
@@ -12,8 +13,6 @@ import {
   Diamond, 
   Flower2 
 } from 'lucide-react';
-
-
 
 export default function CombinedPiftPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -73,7 +72,7 @@ export default function CombinedPiftPage() {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. HERO / 404 SECTION (From Page 10)                                     */}
+      {/* 2. HERO / 404 SECTION (From Page 10)                                    */}
       {/* ========================================================================= */}
       <main className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-stretch relative border-b border-white/5">
         <div className="flex flex-col justify-center px-6 sm:px-12 py-12 md:py-20 lg:pr-16 z-10 max-w-xl md:max-w-none mx-auto md:mx-0">
@@ -107,11 +106,16 @@ export default function CombinedPiftPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-transparent z-10 hidden md:block w-32"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-[#050505] via-transparent to-[#050505] z-10 md:hidden h-24"></div>
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#050505] to-transparent z-10 md:hidden h-24"></div>
-          <img 
+          
+          <Image 
             src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&q=80&w=1200" 
             alt="Editorial high-fashion portrait" 
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            priority
             className="w-full h-full object-cover grayscale brightness-[0.35] contrast-[1.15] transition-transform duration-700 hover:scale-105"
           />
+          
           <div className="absolute bottom-6 right-6 z-20 border border-white/10 px-4 py-2 bg-black/40 backdrop-blur-sm">
             <span className="font-sans text-[10px] tracking-[0.25em] text-zinc-400 uppercase">
               PIFT — Collection 2026
@@ -143,9 +147,11 @@ export default function CombinedPiftPage() {
               className="bg-[#0b0b0b] border border-white/[0.03] flex flex-col justify-between transition-all duration-500 hover:border-white/[0.12] hover:bg-[#0f0f0f] group"
             >
               <div className="relative aspect-[3/2] w-full overflow-hidden bg-zinc-900">
-                <img 
+                <Image 
                   src={program.image} 
                   alt={program.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="w-full h-full object-cover opacity-75 contrast-[1.1] brightness-[0.7] group-hover:scale-105 group-hover:opacity-90 transition-all duration-700 ease-out"
                 />
               </div>

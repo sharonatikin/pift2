@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { 
-  ArrowRight, 
+  ArrowRight, ArrowDownToLine, Menu, ArrowUpRight,
   Download, 
   Layers, 
   ShoppingBag, 
@@ -11,10 +11,11 @@ import {
   ChevronDown, 
   FileText 
 } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Page() {
   // Tracking open index state for smooth accordion drawer toggles
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const overviewCards = [
     {
@@ -205,13 +206,84 @@ export default function Page() {
     },
   ];
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
     <div className="min-h-screen bg-[#050102] text-white font-sans antialiased selection:bg-[#e6001a]">
-     
+      
+      <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-[#E5333B]/20 relative overflow-x-hidden">
+        {/* Background Gradient */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,_#2e080c_0%,_#050505_100%)] opacity-90 pointer-events-none" />
+
+        {/* Hero Layout Content */}
+        <main className="relative z-10 max-w-[1600px] mx-auto px-6 py-12 md:px-12 lg:py-20 grid lg:grid-cols-12 items-center gap-12 lg:gap-8">
+          
+          {/* Left Typography & Details Block */}
+          <div className="lg:col-span-6 space-y-8 lg:pr-6">
+            <div className="space-y-4">
+              <span className="text-[12px] font-bold text-gray-400 uppercase tracking-[0.25em] block">
+                Course Program
+              </span>
+              <h1 className="font-serif text-[64px] md:text-[84px] lg:text-[88px] font-normal leading-[1.05] tracking-tight">
+                <span className="text-white block">Fashion</span>
+                <span className="text-[#E5333B] italic font-medium tracking-wide block mt-1">Entrepreneurship</span>
+              </h1>
+            </div>
+
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-xl font-normal">
+              Fashion Entrepreneurship is designed for aspiring business leaders who wish to establish, manage and grow successful fashion brands. Students learn business strategy, fashion marketing, retail management, merchandising, branding and entrepreneurship within the fashion industry.
+            </p>
+
+            {/* CTA Interface Elements */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <button className="bg-[#E5333B] hover:bg-[#c92a31] text-white font-semibold rounded-full px-10 py-4.5 text-[15px] flex items-center justify-center gap-2 transition-colors duration-300 shadow-[0_4px_30px_rgba(229,51,59,0.2)]">
+                Apply For Admission
+                <ArrowUpRight className="w-4 h-4" />
+              </button>
+              <button className="border border-white/10 hover:border-white/20 bg-white/[0.01] hover:bg-white/[0.04] text-gray-200 font-medium rounded-full px-10 py-4.5 text-[15px] flex items-center justify-center gap-2 transition-colors duration-300 backdrop-blur-sm">
+                Download Brochure
+                <ArrowDownToLine className="w-4 h-4 text-gray-400" />
+              </button>
+            </div>
+          </div>
+
+          {/* Right Graphical Composition with Floated Badges */}
+          <div className="lg:col-span-6 relative mt-6 lg:mt-0 flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-[580px] aspect-[4/5] rounded-[32px] overflow-hidden border border-white/[0.06] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <Image
+                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1200&auto=format&fit=crop"
+                alt="Tailored premium suit jackets on display showcasing fashion business and craftsmanship"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 580px"
+                priority
+              />
+              {/* Color graded vignette enhancement */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+            </div>
+
+            {/* Floating Context Labels */}
+            <div className="absolute top-[8%] -left-[4%] sm:-left-[1%] bg-black/40 backdrop-blur-xl border border-white/[0.06] rounded-full px-5 py-2.5 text-[12px] sm:text-[14px] font-medium tracking-wide text-gray-200 shadow-lg">
+              Business Strategy
+            </div>
+
+            <div className="absolute top-[48%] -left-[6%] sm:-left-[1%] bg-black/40 backdrop-blur-xl border border-white/[0.06] rounded-full px-5 py-2.5 text-[12px] sm:text-[14px] font-medium tracking-wide text-gray-200 shadow-lg">
+              Retail Management
+            </div>
+
+            <div className="absolute top-[32%] -right-[2%] sm:-right-[4%] bg-black/40 backdrop-blur-xl border border-white/[0.06] rounded-full px-5 py-2.5 text-[12px] sm:text-[14px] font-medium tracking-wide text-gray-200 shadow-lg">
+              Fashion Branding
+            </div>
+
+            <div className="absolute bottom-[16%] -right-[4%] sm:-right-[6%] bg-black/40 backdrop-blur-xl border border-white/[0.06] rounded-full px-5 py-2.5 text-[12px] sm:text-[14px] font-medium tracking-wide text-gray-200 shadow-lg">
+              Fashion Marketing
+            </div>
+          </div>
+
+        </main>
+      </div>
 
       {/* 3. PROGRAM OVERVIEW SECTION */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -220,10 +292,12 @@ export default function Page() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-center mb-16 md:mb-20">
             <div className="md:col-span-5 w-full flex justify-center md:justify-start">
               <div className="relative w-full max-w-[440px] aspect-[1/1] sm:aspect-[4/5] rounded-[32px] overflow-hidden border border-white/5 shadow-2xl">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80" 
                   alt="Creative strategists analyzing moodboards" 
-                  className="w-full h-full object-cover grayscale opacity-90 contrast-105 transition duration-500 hover:scale-102"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 440px"
+                  className="object-cover grayscale opacity-90 contrast-105 transition duration-500 hover:scale-102"
                 />
               </div>
             </div>
@@ -385,34 +459,42 @@ export default function Page() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-5 grid grid-cols-2 gap-4 h-[500px] sm:h-[600px] w-full max-w-[500px] mx-auto lg:mx-0">
               <div className="space-y-4 flex flex-col justify-center">
-                <div className="h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl relative group">
-                  <img 
+                <div className="relative h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl group">
+                  <Image 
                     src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80" 
                     alt="Fashion retail workspace" 
-                    className="w-full h-full object-cover grayscale opacity-80 contrast-110 transition duration-700 ease-out group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 250px"
+                    className="object-cover grayscale opacity-80 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
-                <div className="h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl relative group">
-                  <img 
+                <div className="relative h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl group">
+                  <Image 
                     src="https://images.unsplash.com/photo-1537874686475-54313545367c?auto=format&fit=crop&w=600&q=80" 
                     alt="Fashion designer draping" 
-                    className="w-full h-full object-cover grayscale opacity-85 contrast-110 transition duration-700 ease-out group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 250px"
+                    className="object-cover grayscale opacity-85 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
               </div>
               <div className="space-y-4 flex flex-col justify-center pt-8 lg:pt-12">
-                <div className="h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl relative group">
-                  <img 
+                <div className="relative h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl group">
+                  <Image 
                     src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=600&q=80" 
                     alt="Technical fashion sketch" 
-                    className="w-full h-full object-cover grayscale opacity-85 contrast-110 transition duration-700 ease-out group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 250px"
+                    className="object-cover grayscale opacity-85 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
-                <div className="h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl relative group">
-                  <img 
+                <div className="relative h-[48%] rounded-[24px] overflow-hidden border border-white/5 shadow-2xl group">
+                  <Image 
                     src="https://images.unsplash.com/photo-1441984969893-c534c0148ff0?auto=format&fit=crop&w=600&q=80" 
                     alt="Boutique interior architecture" 
-                    className="w-full h-full object-cover grayscale opacity-75 contrast-110 transition duration-700 ease-out group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 250px"
+                    className="object-cover grayscale opacity-75 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                   />
                 </div>
               </div>
@@ -486,8 +568,14 @@ export default function Page() {
               <div key={idx} className="bg-[#110d0e]/90 border border-white/[0.03] hover:border-[#e6001a]/20 rounded-[24px] p-8 md:p-10 flex flex-col justify-between min-h-[380px] transition duration-300 ease-out group hover:bg-[#150f11]">
                 <div className="mb-8 relative w-16 h-16">
                   <div className="absolute inset-0 rounded-full border border-[#e6001a]/40 scale-110 pointer-events-none group-hover:scale-115 transition-transform duration-300" />
-                  <div className="w-16 h-16 rounded-full overflow-hidden border border-[#e6001a] relative z-10">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover grayscale opacity-90 transition duration-500 group-hover:scale-105 group-hover:grayscale-0" />
+                  <div className="relative w-16 h-16 rounded-full overflow-hidden border border-[#e6001a] z-10">
+                    <Image 
+                      src={item.image} 
+                      alt={item.name} 
+                      fill
+                      sizes="64px"
+                      className="object-cover grayscale opacity-90 transition duration-500 group-hover:scale-105 group-hover:grayscale-0" 
+                    />
                   </div>
                 </div>
                 <div className="flex-grow flex items-start">

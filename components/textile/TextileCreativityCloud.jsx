@@ -1,10 +1,10 @@
 export default function TextileCreativityCloud() {
   const nodes = [
     { title: 'Textile Illustration', top: '30%', left: '18%' }, { title: 'Print Design', top: '34%', left: '54%' },
-    { title: 'Fabric Development', top: '42%', left: '40%' }, { title: 'Surface Ornamentation', top: '46%', left: '76%' },
-    { title: 'Embroidery Design', top: '54%', left: '28%' }, { title: 'Knitting', top: '52%', left: '82%' },
-    { title: 'Weaving', top: '58%', left: '62%' }, { title: 'Trend Forecasting', top: '68%', left: '22%' },
-    { title: 'Dyeing Techniques', top: '64%', left: '48%' }, { title: 'Portfolio Building', top: '64%', left: '86%' },
+    { title: 'Fabric Development', top: '32%', left: '40%' }, { title: 'Surface Ornamentation', top: '16%', left: '76%' },
+    { title: 'Embroidery Design', top: '54%', left: '28%' }, { title: 'Knitting', top: '42%', left: '82%' },
+    { title: 'Weaving', top: '48%', left: '62%' }, { title: 'Trend Forecasting', top: '68%', left: '22%' },
+    { title: 'Dyeing Techniques', top: '54%', left: '48%' }, { title: 'Portfolio Building', top: '64%', left: '86%' },
     { title: 'Material Research', top: '69%', left: '68%' }, { title: 'CAD Textile Design', top: '74%', left: '52%' }
   ];
   return (

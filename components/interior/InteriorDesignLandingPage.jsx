@@ -30,7 +30,7 @@ export default function InteriorDesignLandingPage() {
         {/* Background Image with Dark Overlay */}
         <div className="absolute inset-0 -z-10">
           <Image
-            src="https://images.unsplash.com/photo-1598211686290-a8ef209d87c5?q=80&w=2670&auto=format&fit=crop"
+            src="/images/interior-bg.png"
             alt="Luxurious hotel lobby interior with modern lighting and marble finishes"
             fill
             className="object-cover object-center brightness-[0.25] saturate-[0.8]"

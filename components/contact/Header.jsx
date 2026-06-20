@@ -1,4 +1,7 @@
+'use client';
+
 import { useState } from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,11 +16,16 @@ export default function Header() {
       </div>
 
       <div className={styles.headerNav}>
-        <div className={styles.logoWrap}>
-          <img
+        {/* Adjusted parent container to preserve layout metrics */}
+        <div className={`${styles.logoWrap} relative w-[120px] h-[60px]`}>
+          <Image
             src="https://images.unsplash.com/photo-1599058917212-d750089bc07e?w=120&h=60&fit=crop"
             alt="PIFT Logo"
+            fill
+            sizes="120px"
+            priority
             className={styles.logo}
+            style={{ objectFit: 'cover' }}
           />
         </div>
 

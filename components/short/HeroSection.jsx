@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 
 export default function HeroSection() {
   return (
@@ -41,22 +42,28 @@ export default function HeroSection() {
          <div className="lg:col-span-6 relative w-full h-[450px] md:h-[550px] flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
            
            {/* Back/Top-Right Image: Creative Studio Environment */}
-           <div className="absolute right-4 top-10 md:right-8 md:bottom-64  w-[240px] md:w-[320px] aspect-[7/10] rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-transform duration-500 hover:scale-[1.02] z-10">
-             <img 
+           <div className="absolute right-4 top-10 md:right-8 md:bottom-64 w-[240px] md:w-[320px] aspect-[7/10] rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-transform duration-500 hover:scale-[1.02] z-10">
+             <Image 
                src="/images/short-hero-img.png" 
                alt="Fashion Moodboard and Designers" 
-               className="w-full h-full object-cover opacity-80 brightness-[0.85] contrast-[1.05]"
+               fill
+               sizes="(max-width: 768px) 240px, 320px"
+               priority
+               className="object-cover opacity-80 brightness-[0.85] contrast-[1.05]"
              />
              {/* Soft Warm Red Overlay Filter */}
              <div className="absolute inset-0 bg-[#2c0a0a]/20 mix-blend-color-burn pointer-events-none" />
            </div>
  
            {/* Front/Bottom-Left Image: Precision Technical Craft (Sewing) */}
-           <div className="absolute  bottom-4 md:right-32 md:top-64 w-[240px] md:w-[320px] aspect-[7/10] rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-transform duration-500 hover:scale-[1.02] z-30">
-             <img 
+           <div className="absolute bottom-4 md:right-32 md:top-64 w-[240px] md:w-[320px] aspect-[7/10] rounded-2xl overflow-hidden shadow-2xl border border-white/5 transition-transform duration-500 hover:scale-[1.02] z-30">
+             <Image 
                src="/images/short-hero-img2.png" 
                alt="Fashion Student Crafting Apparel" 
-               className="w-full h-full object-cover opacity-85 brightness-[0.8] contrast-[1.1]"
+               fill
+               sizes="(max-width: 768px) 240px, 320px"
+               priority
+               className="object-cover opacity-85 brightness-[0.8] contrast-[1.1]"
              />
              {/* Subtle Gradient to darken the frame base */}
              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
@@ -64,10 +71,13 @@ export default function HeroSection() {
  
            {/* Foreground/Center Floating Image Accent: Editorial Lookbook */}
            <div className="absolute right-16 md:right-28 top-1/3 -translate-y-1/4 w-[160px] md:w-[210px] aspect-square rounded-2xl overflow-hidden shadow-2xl border border-white/10 transition-transform duration-500 hover:scale-[1.05] z-40">
-             <img 
+             <Image 
                src="/images/short-hero-img3.png" 
                alt="Editorial Green Backdrop Fashion Model" 
-               className="w-full h-full object-cover brightness-[0.9] contrast-[1.05]"
+               fill
+               sizes="(max-width: 768px) 160px, 210px"
+               priority
+               className="object-cover brightness-[0.9] contrast-[1.05]"
              />
              {/* Pop filter mask */}
              <div className="absolute inset-0 bg-gradient-to-b from-[#ff2a2a]/5 via-transparent to-black/20 pointer-events-none" />

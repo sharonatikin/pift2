@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 
 export default function VisualShowcase() {
   return (
@@ -21,10 +22,12 @@ export default function VisualShowcase() {
           
           {/* Left Column: Major Portrait Showcase (Designer Workstation) */}
           <div className="md:col-span-7 relative rounded-2xl overflow-hidden aspect-[4/5] md:aspect-auto md:h-full min-h-[400px] md:min-h-[500px] group border border-zinc-900/40 shadow-2xl">
-            <img 
+            <Image 
               src="/images/short-explore1.png" 
               alt="Designer workstation with moodboards and sketches" 
-              className="w-full h-full object-cover brightness-[0.75] sepia-[0.15] contrast-[1.05] transition-transform duration-700 group-hover:scale-102"
+              fill
+              sizes="(max-width: 768px) 100vw, 60vw"
+              className="object-cover brightness-[0.75] sepia-[0.15] contrast-[1.05] transition-transform duration-700 group-hover:scale-102"
             />
             {/* Color Overlay to capture the warm, muted studio lighting */}
             <div className="absolute inset-0 bg-[#3a1a1a]/10 mix-blend-color-burn pointer-events-none" />
@@ -43,10 +46,12 @@ export default function VisualShowcase() {
             
             {/* Top Right Box: Digital Design */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-zinc-900/40 shadow-2xl">
-              <img 
+              <Image 
                 src="/images/short-explore2.png" 
                 alt="Digital fashion design interface and color swatches" 
-                className="w-full h-full object-cover brightness-[0.7] contrast-[1.05] transition-transform duration-700 group-hover:scale-102"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover brightness-[0.7] contrast-[1.05] transition-transform duration-700 group-hover:scale-102"
               />
               <div className="absolute inset-0 bg-[#240a0a]/10 mix-blend-color-burn pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent pointer-events-none" />
@@ -60,10 +65,12 @@ export default function VisualShowcase() {
 
             {/* Bottom Right Box: Textile Experiments */}
             <div className="relative rounded-2xl overflow-hidden aspect-[4/3] group border border-zinc-900/40 shadow-2xl">
-              <img 
+              <Image 
                 src="/images/short-explore3.png" 
                 alt="Detailed fabric texture and textile experimentation" 
-                className="w-full h-full object-cover brightness-[0.7] contrast-[1.1] transition-transform duration-700 group-hover:scale-102"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover brightness-[0.7] contrast-[1.1] transition-transform duration-700 group-hover:scale-102"
               />
               <div className="absolute inset-0 bg-[#1a0505]/10 mix-blend-color-burn pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/5 to-transparent pointer-events-none" />

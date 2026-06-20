@@ -18,13 +18,13 @@ import {
   LineChart, 
   ChevronDown 
 } from 'lucide-react';
+import Image from 'next/image'; // Imported Next.js Image component
 
 import Hero from './../../components/apparel/Hero.jsx'
 import SuccessStories from './../../components/apparel/SuccessStories.jsx'
 import JourneySection from './../../components/apparel/JourneySection.jsx'
 import CTASection from './../../components/apparel/CTASection.jsx'
 import FAQ from './../../components/apparel/FAQ.jsx'
-
 
 export default function Page() {
 
@@ -104,8 +104,6 @@ export default function Page() {
     { title: 'Category Manager', icon: Layers },
   ];
 
-
-
   return (
     <div className="min-h-screen bg-[#050102] text-white font-sans antialiased selection:bg-[#e6001a]">
       <Hero />
@@ -116,10 +114,12 @@ export default function Page() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="md:col-span-5 w-full flex justify-center md:justify-start">
             <div className="relative w-full max-w-[440px] aspect-[4/5] rounded-[32px] overflow-hidden border border-white/5 shadow-2xl">
-              <img 
+              <Image 
                 src="/images/apparel-sec2.png" 
                 alt="Industrial tailoring" 
-                className="w-full h-full object-cover grayscale opacity-90 contrast-105 transition duration-500 hover:scale-102"
+                fill
+                sizes="(max-width: 768px) 100vw, 440px"
+                className="object-cover grayscale opacity-90 contrast-105 transition duration-500 hover:scale-102"
               />
             </div>
           </div>
@@ -276,17 +276,21 @@ export default function Page() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-5 flex gap-4 h-[450px] sm:h-[550px] w-full max-w-[500px] mx-auto lg:mx-0">
               <div className="w-1/2 h-full rounded-[28px] overflow-hidden border border-white/5 shadow-2xl relative group">
-                <img 
+                <Image 
                   src="/images/apparel-exp1.png" 
                   alt="Garment assembly floor" 
-                  className="w-full h-full object-cover grayscale opacity-85 contrast-110 transition duration-700 ease-out group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 250px"
+                  className="object-cover grayscale opacity-85 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                 />
               </div>
               <div className="w-1/2 h-full rounded-[28px] overflow-hidden border border-white/5 shadow-2xl relative group">
-                <img 
+                <Image 
                   src="/images/apparel-exp2.png" 
                   alt="Industrial textile facility" 
-                  className="w-full h-full object-cover grayscale opacity-80 contrast-110 transition duration-700 ease-out group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 250px"
+                  className="object-cover grayscale opacity-80 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                 />
               </div>
             </div>
@@ -349,7 +353,6 @@ export default function Page() {
       <FAQ />
       <CTASection />
       
-
     </div>
   );
 }

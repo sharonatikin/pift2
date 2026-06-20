@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 import { 
   BookOpen, 
   Briefcase, 
@@ -42,13 +43,15 @@ export default function WhyShortTerm() {
     <section className="w-full bg-[#050101] text-white px-6 py-16 md:px-12 lg:px-24 flex items-center justify-center min-h-[650px]">
       <div className="max-w-5xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
         
-        {/* Left Column: Contextual Unsplash Image Showcase */}
+        {/* Left Column: Contextual Next.js Image Showcase */}
         <div className="lg:col-span-6 w-full flex justify-center lg:justify-start">
           <div className="relative w-full max-w-[440px] aspect-[7/10] rounded-2xl overflow-hidden shadow-2xl border border-zinc-900/40 group">
-            <img 
+            <Image 
               src="/images/short-sec3.png" 
               alt="Creative fashion student in design studio environment" 
-              className="w-full h-full object-cover brightness-[0.72] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
+              fill
+              sizes="(max-width: 1024px) 100vw, 440px"
+              className="object-cover brightness-[0.72] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
             />
             {/* Ambient vignette shading matrix layers to mirror image profile tone */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />

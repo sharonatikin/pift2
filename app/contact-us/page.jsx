@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 import { 
   Search, 
   Menu, 
@@ -181,7 +182,7 @@ export default function Page () {
       {/* 5. COMPONENT: FULL DUAL-CARD INTEGRATED SIGN UP / INTERACTIVE FORM       */}
       {/* ========================================================================= */}
       <section className=" bg-[#FF2B2B] flex items-center justify-center mx-auto px-4 sm:px-6 lg:px-28 py-28 ">
-        <div className="w-full bg-[#111111] rounded-sm max-w-6xl border border-zinc-900 shadow-2xl rounded-sm p-6 sm:p-8 md:p-10 lg:p-12">
+        <div className="w-full bg-[#111111] max-w-6xl border border-zinc-900 shadow-2xl rounded-sm p-6 sm:p-8 md:p-10 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             
             {/* Form Left Container Wrap */}
@@ -284,10 +285,12 @@ export default function Page () {
 
               {/* Placeholder Content Frame */}
               <div className="w-full aspect-video sm:aspect-[4/3] lg:aspect-square bg-zinc-800 rounded-sm overflow-hidden relative group">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=600&q=80"
                   alt="Campus Location Visual"
-                  className="w-full h-full object-cover opacity-60 grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  className="object-cover opacity-60 grayscale group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-black/20 mix-blend-multiply" />
               </div>
@@ -373,12 +376,13 @@ export default function Page () {
         {/* High-fidelity Custom Map Visual Segment Block */}
         <div className="w-full bg-white p-4 sm:p-5 rounded-xs shadow-md">
           <div className="relative w-full overflow-hidden rounded-xs bg-[#e5e3df] aspect-[16/10] md:aspect-[21/9]">
-            {/* Embedded Stylized Map Imagery Simulation Layer */}
-            <div 
-              className="absolute inset-0 bg-cover bg-center mix-blend-normal opacity-90 grayscale contrast-[1.05] brightness-[0.98]"
-              style={{ 
-                backgroundImage: `url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80')` 
-              }}
+            {/* Embedded Stylized Map Imagery Layer via Next.js Image component */}
+            <Image
+              src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80"
+              alt="Embedded Stylized Map Imagery Simulation Layer"
+              fill
+              sizes="100vw"
+              className="object-cover mix-blend-normal opacity-90 grayscale contrast-[1.05] brightness-[0.98]"
             />
             
             {/* Simulated Modern Street Overlay Filter (Fallback look representation) */}

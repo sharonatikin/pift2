@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 import { 
   ArrowRight, 
   Download, 
@@ -26,7 +27,7 @@ import {
 
 export default function Page() {
   // Tracking open index state for smooth accordion drawer toggles
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const snapshotItems = [
     { label: 'Duration', value: '3 Years' },
@@ -136,7 +137,7 @@ export default function Page() {
     },
   ];
 
-  const toggleFAQ = (index) => {
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -164,10 +165,12 @@ export default function Page() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 items-center">
           <div className="md:col-span-5 w-full flex justify-center md:justify-start">
             <div className="relative w-full max-w-[440px] aspect-[4/3] sm:aspect-[4/5] rounded-[32px] overflow-hidden border border-white/5 shadow-2xl">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80" 
                 alt="Fashion studio workspace" 
-                className="w-full h-full object-cover grayscale opacity-90 contrast-105"
+                fill
+                sizes="(max-width: 768px) 100vw, 440px"
+                className="object-cover grayscale opacity-90 contrast-105"
               />
             </div>
           </div>
@@ -275,10 +278,12 @@ export default function Page() {
                 </h2>
               </div>
               <div className="relative w-full aspect-[4/3] sm:aspect-[4/5] rounded-[32px] overflow-hidden border border-white/5 shadow-2xl group">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" 
                   alt="Technical drawing setup" 
-                  className="w-full h-full object-cover grayscale opacity-90 contrast-105 transition duration-700 group-hover:scale-102"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 500px"
+                  className="object-cover grayscale opacity-90 contrast-105 transition duration-700 group-hover:scale-102"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
               </div>
@@ -325,23 +330,53 @@ export default function Page() {
           <h2 className="text-4xl font-light font-serif">Explore the <span className="text-[#e6001a]">Stunning</span> Studio Space</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-[600px] md:h-[500px]">
-          <div className="md:col-span-4 rounded-xl overflow-hidden bg-zinc-900 relative group h-full">
-            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80" alt="High fashion presentation model view" className="w-full h-full object-cover grayscale opacity-80 transition duration-500 group-hover:scale-102" />
+          <div className="relative md:col-span-4 rounded-xl overflow-hidden bg-zinc-900 group h-full">
+            <Image 
+              src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=700&q=80" 
+              alt="High fashion presentation model view" 
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover grayscale opacity-80 transition duration-500 group-hover:scale-102" 
+            />
           </div>
           <div className="md:col-span-4 grid grid-rows-2 gap-6 h-full">
-            <div className="rounded-xl overflow-hidden bg-zinc-900 relative group">
-              <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=600&q=80" alt="Woven pattern details texture knit" className="w-full h-full object-cover grayscale opacity-75 transition duration-500 group-hover:scale-102" />
+            <div className="relative rounded-xl overflow-hidden bg-zinc-900 group">
+              <Image 
+                src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=600&q=80" 
+                alt="Woven pattern details texture knit" 
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale opacity-75 transition duration-500 group-hover:scale-102" 
+              />
             </div>
-            <div className="rounded-xl overflow-hidden bg-zinc-900 relative group">
-              <img src="https://images.unsplash.com/photo-1615148739121-fd9e7efdb0df?auto=format&fit=crop&w=600&q=80" alt="Golden knit stitch details pattern layout" className="w-full h-full object-cover grayscale opacity-80 transition duration-500 group-hover:scale-102" />
+            <div className="relative rounded-xl overflow-hidden bg-zinc-900 group">
+              <Image 
+                src="https://images.unsplash.com/photo-1615148739121-fd9e7efdb0df?auto=format&fit=crop&w=600&q=80" 
+                alt="Golden knit stitch details pattern layout" 
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale opacity-80 transition duration-500 group-hover:scale-102" 
+              />
             </div>
           </div>
           <div className="md:col-span-4 grid grid-rows-2 gap-6 h-full">
-            <div className="rounded-xl overflow-hidden bg-zinc-900 relative group">
-              <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" alt="Technical drawing tools mapping setup" className="w-full h-full object-cover grayscale opacity-70 transition duration-500 group-hover:scale-102" />
+            <div className="relative rounded-xl overflow-hidden bg-zinc-900 group">
+              <Image 
+                src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80" 
+                alt="Technical drawing tools mapping setup" 
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale opacity-70 transition duration-500 group-hover:scale-102" 
+              />
             </div>
-            <div className="rounded-xl overflow-hidden bg-zinc-900 relative group">
-              <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" alt="Students executing collection design layouts" className="w-full h-full object-cover grayscale opacity-75 transition duration-500 group-hover:scale-102" />
+            <div className="relative rounded-xl overflow-hidden bg-zinc-900 group">
+              <Image 
+                src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80" 
+                alt="Students executing collection design layouts" 
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover grayscale opacity-75 transition duration-500 group-hover:scale-102" 
+              />
             </div>
           </div>
         </div>
@@ -436,8 +471,14 @@ export default function Page() {
           <p className="text-zinc-400 text-sm font-light">Every completed design track grants an official verification seal linked to your portfolio for global authenticity loops.</p>
         </div>
         <div className="max-w-md mx-auto bg-[#110d0e]/90 border border-white/5 p-4 rounded-xl shadow-2xl">
-          <div className="aspect-[16/10] bg-zinc-900 rounded-lg overflow-hidden relative flex items-center justify-center">
-            <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" alt="Credentials Certificate Verification Graphic" className="w-full h-full object-cover opacity-20 grayscale" />
+          <div className="relative aspect-[16/10] bg-zinc-900 rounded-lg overflow-hidden flex items-center justify-center">
+            <Image 
+              src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=800&q=80" 
+              alt="Credentials Certificate Verification Graphic" 
+              fill
+              sizes="(max-width: 768px) 100vw, 448px"
+              className="object-cover opacity-20 grayscale" 
+            />
             <div className="absolute p-6 text-center border border-white/10 bg-black/60 backdrop-blur-sm rounded-lg max-w-xs">
               <Award className="w-8 h-8 text-[#e6001a] mx-auto mb-2" />
               <h4 className="font-serif italic text-sm text-zinc-300">Official Verification Seal</h4>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image'; // Imported Next.js Image component
 
 export default function CertificationSection() {
   return (
@@ -27,18 +28,20 @@ export default function CertificationSection() {
         {/* High-Fidelity Certification Badge Frame Showcase */}
         <div className="relative w-full max-w-[560px] aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-zinc-900/60 group">
           
-          {/* Elegant Contextual Unsplash Placeholder Image (Muted Premium Texture / Envelope Seal Background) */}
-          <img 
+          {/* Elegant Contextual Next.js Image component replacing the traditional img tag */}
+          <Image 
             src="/images/short-cert-sec.png" 
             alt="Professional minimalist certificate envelope and stamp texture" 
-            className="w-full h-full object-cover brightness-[0.35] contrast-[1.05] sepia-[0.1] transition-transform duration-700 group-hover:scale-102"
+            fill
+            sizes="(max-width: 768px) 100vw, 560px"
+            className="object-cover brightness-[0.35] contrast-[1.05] sepia-[0.1] transition-transform duration-700 group-hover:scale-102"
           />
           
           {/* Luxury Warm Studio Lighting Shadows Mask Overlay */}
           <div className="absolute inset-0 bg-[#2b0c0c]/15 mix-blend-color-burn pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/40 pointer-events-none" />
           
-          {/* Centered Certificate Badge Minimal Meta Details */}
+          {/* CentCentered Certificate Badge Minimal Meta Details */}
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6 space-y-2">
             
             <span className="text-zinc-500 text-[10px] font-medium font-sans tracking-[0.3em] uppercase">

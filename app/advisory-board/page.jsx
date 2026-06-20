@@ -15,6 +15,7 @@ import {
   Award, 
   GraduationCap 
 } from 'lucide-react';
+import Image from 'next/image';
 
 // Data Sets
 const members = [
@@ -348,27 +349,34 @@ export default function AdvisoryBoardPage() {
 
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-12 gap-4 h-full relative">
             <div className="sm:col-span-7 relative h-[350px] sm:h-[580px] w-full overflow-hidden group">
-              <img 
+              <Image 
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=800" 
                 alt="Advisory board visionary leader"
-                className="w-full h-full object-cover filter grayscale contrast-115 brightness-90 group-hover:scale-105 transition-transform duration-700 ease-out"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 60vw, 450px"
+                priority
+                className="object-cover filter grayscale contrast-115 brightness-90 group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b0706]/40 via-transparent to-transparent" />
             </div>
 
             <div className="sm:col-span-5 flex flex-col gap-4 relative justify-between">
               <div className="relative h-[200px] sm:h-[272px] w-full overflow-hidden group">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600" 
                   alt="Creative design director layout style"
-                  className="w-full h-full object-cover filter grayscale contrast-125 brightness-75 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 320px"
+                  className="object-cover filter grayscale contrast-125 brightness-75 group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </div>
               <div className="relative h-[250px] sm:h-[292px] w-full overflow-hidden group">
-                <img 
+                <Image 
                   src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600" 
                   alt="Fashion expert profile alignment"
-                  className="w-full h-full object-cover filter grayscale contrast-110 brightness-75 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 40vw, 320px"
+                  className="object-cover filter grayscale contrast-110 brightness-75 group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-[#0b0706]/30 via-transparent to-transparent" />
               </div>
@@ -431,10 +439,12 @@ export default function AdvisoryBoardPage() {
               <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-[#e31e24]" />
               <div className="w-full h-full border border-[#e31e24]/40 p-2 sm:p-3 bg-transparent">
                 <div className="w-full h-full relative overflow-hidden group bg-[#120c0a]">
-                  <img 
+                  <Image 
                     src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" 
                     alt="Ms. Priya Sharma Portrait"
-                    className="w-full h-full object-cover filter grayscale contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-700 ease-out"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    className="object-cover filter grayscale contrast-125 brightness-90 group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#030101]/50 via-transparent to-transparent" />
                 </div>
@@ -494,10 +504,12 @@ export default function AdvisoryBoardPage() {
           {members.map((member) => (
             <div key={member.id} className="flex flex-col bg-[#090605] border border-[#140e0c] transition-all duration-300 hover:border-[#e31e24]/30 group">
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#120c0a]">
-                <img 
+                <Image 
                   src={member.imageUrl} 
                   alt={`${member.name}`}
-                  className="w-full h-full object-cover filter grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 380px"
+                  className="object-cover filter grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute top-0 right-0 bg-[#e31e24] px-3 py-1.5 z-10">
                   <span className="text-[9px] font-sans font-semibold tracking-widest text-white block">
@@ -583,20 +595,15 @@ export default function AdvisoryBoardPage() {
           })}
         </div>
 
-        <div className="md:hidden w-full max-w-sm flex flex-col items-center space-y-4 px-4 relative z-10">
-          <div className="w-[80px] h-[80px] bg-[#030101] border border-[#e31e24]/80 flex items-center justify-center mb-8">
-            <span className="font-serif text-sm tracking-widest text-white">PIFT</span>
-          </div>
-          <div className="w-full flex flex-col space-y-2 border-l border-dashed border-[#e31e24]/30 pl-6 ml-2">
-            {expertiseNodes.map((node, index) => (
-              <div key={index} className="flex items-center space-x-3 py-2 group">
-                <span className="w-2 h-2 rounded-full bg-[#e31e24] inline-block shrink-0" />
-                <span className="text-sm font-sans tracking-wide text-[#b8b2ae] group-hover:text-white transition-colors duration-300">
-                  {node.title}
-                </span>
-              </div>
-            ))}
-          </div>
+        <div className="md:hidden w-full max-w-sm flex flex-col space-y-2 border-l border-dashed border-[#e31e24]/30 pl-6 ml-2">
+          {expertiseNodes.map((node, index) => (
+            <div key={index} className="flex items-center space-x-3 py-2 group">
+              <span className="w-2 h-2 rounded-full bg-[#e31e24] inline-block shrink-0" />
+              <span className="text-sm font-sans tracking-wide text-[#b8b2ae] group-hover:text-white transition-colors duration-300">
+                {node.title}
+              </span>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -806,10 +813,12 @@ export default function AdvisoryBoardPage() {
               <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-[#e31e24]/80" />
               <div className="w-full h-full border border-[#e31e24]/20 p-2 sm:p-3 bg-transparent">
                 <div className="w-full h-full relative overflow-hidden group bg-[#090605]">
-                  <img 
+                  <Image 
                     src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800" 
                     alt="Students collaborating"
-                    className="w-full h-full object-cover filter grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 450px"
+                    className="object-cover filter grayscale contrast-115 brightness-90 transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute bottom-6 left-6 bg-[#090605]/80 backdrop-blur-md border border-[#211a18] p-5 min-w-[160px] shadow-2xl">
                     <span className="text-2xl md:text-3xl font-serif font-semibold text-[#e31e24] block leading-none">94%</span>

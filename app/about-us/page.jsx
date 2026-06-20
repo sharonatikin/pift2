@@ -15,10 +15,17 @@ import {
   Square, 
   Quote, 
   Download, 
-  Calendar 
+  Calendar,
+  ArrowUpRight 
 } from 'lucide-react';
+import Image from 'next/image';
 
-
+const stats = [
+  { value: '25+', label: 'YEARS OF LEGACY' },
+  { value: '12K+', label: 'GRADUATES' },
+  { value: '97%', label: 'PLACEMENT SUCCESS' },
+  { value: '38+', label: 'INDUSTRY COLLABORATIONS' },
+];
 
 // ==========================================
 // CENTRALIZED DATA COMPONENT DRIVERS
@@ -35,7 +42,7 @@ const statsData = [
   { number: '12K+', label: 'ALUMNI NETWORK' },
   { number: '38+', label: 'INDUSTRY PARTNERS' },
   { number: '97%', label: 'PLACEMENT RATE' },
-  { number: '25+', label: 'YEARS LEGACY' },
+  { number: '25%', label: 'YEARS LEGACY' },
   { number: '500+', label: 'INDUSTRY PROJECTS' },
   { number: '100+', label: 'WORKSHOPS ANNUALLY' },
 ];
@@ -119,72 +126,90 @@ export default function UnifiedPIFTLandingPage() {
     <div className="bg-black text-white antialiased min-h-screen overflow-x-hidden select-none selection:bg-[#e11d48] selection:text-white">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen w-full bg-[#0a0a0a] overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-          <img
-            src="https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&q=80&w=1920"
-            alt="Design Studio Background"
-            className="w-full h-full object-cover filter grayscale brightness-50"
+      <section className="relative min-h-screen bg-[#060606] text-white flex items-center justify-center overflow-hidden selection:bg-[#E5333B]/20">
+        {/* Background image overlay with extreme dimming for layout structure matching */}
+        <div className="absolute inset-0 z-0 mix-blend-luminosity opacity-15 pointer-events-none">
+          <Image
+            src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1600&auto=format&fit=crop"
+            alt="Fashion design background model portrait"
+            fill
+            className="object-cover"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]" />
         </div>
 
-        <div className="relative z-10 max-w-7xl w-full mx-auto px-6 py-16 md:py-24 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-8">
-            <div>
-              <span className="text-xs uppercase tracking-[0.3em] text-[#e11d48] font-semibold block mb-6">About PIFT</span>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-serif leading-[1.1] font-light tracking-tight max-w-2xl">
-                Designing <br className="hidden sm:inline" />
+        {/* Radial overlay to match the subtle dark gradients */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,_transparent_0%,_#060606_85%)] z-0 pointer-events-none" />
+
+        <div className="relative z-10 max-w-[1650px] w-full mx-auto px-6 py-16 md:px-12 lg:py-24 grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Content Column */}
+          <div className="lg:col-span-6 space-y-8 xl:space-y-12">
+            <div className="space-y-4">
+              <span className="text-[12px] font-bold text-[#E5333B] tracking-[0.3em] uppercase block">
+                About PIFT
+              </span>
+              <h1 className="font-serif text-[48px] sm:text-[68px] xl:text-[80px] font-normal leading-[1.1] tracking-tight text-white">
+                Designing <br />
                 Futures. <br />
-                Creating <span className="text-[#e11d48] italic font-normal">Creative</span> <br />
-                <span className="text-[#e11d48] italic font-normal">Leaders.</span>
+                Creating <span className="text-[#E5333B] italic font-medium tracking-wide">Creative</span> <br />
+                <span className="text-[#E5333B]">Leaders.</span>
               </h1>
             </div>
-            <p className="text-[#9ca3af] text-sm sm:text-base max-w-md font-light leading-relaxed tracking-wide">
+
+            <p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed font-light tracking-wide">
               For decades, PIFT has nurtured aspiring designers, innovators and entrepreneurs through industry-driven education, practical learning and creative excellence.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="bg-[#e11d48] hover:bg-[#be123c] text-white text-xs tracking-widest font-semibold uppercase px-8 py-4 transition-colors duration-300 ease-in-out flex items-center justify-center gap-2 group">
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
+              <button className="w-full sm:w-auto bg-[#E5333B] hover:bg-[#c92a31] text-white font-semibold uppercase tracking-widest text-[12px] rounded-[2px] px-10 py-5 transition-colors duration-300 flex items-center justify-center gap-2">
                 Explore Our Journey
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                <ArrowUpRight className="w-4 h-4" />
               </button>
-              <button className="border border-[#374151] hover:border-white text-white text-xs tracking-widest font-semibold uppercase px-8 py-4 transition-colors duration-300 ease-in-out bg-black/20 backdrop-blur-sm">
+              <button className="w-full sm:w-auto border border-white/20 hover:border-white/40 bg-white/[0.01] hover:bg-white/[0.04] text-gray-300 hover:text-white font-semibold uppercase tracking-widest text-[12px] rounded-[2px] px-10 py-5 transition-all duration-300 flex items-center justify-center gap-2">
                 Discover Programs
+                <Compass className="w-4 h-4 text-gray-400" />
               </button>
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative w-full flex flex-col items-center lg:items-end justify-center">
-            <div className="relative w-full max-w-md lg:max-w-none aspect-[4/5] bg-[#171717] overflow-hidden shadow-2xl group border border-neutral-800/50">
-              <img
-                src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000"
-                alt="High Fashion Design Showcase"
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          {/* Right Media Display Column */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-12 gap-6 items-end relative">
+            
+            {/* Main Context Image */}
+            <div className="sm:col-span-12 relative aspect-[4/4] xl:aspect-[5/4] w-full rounded-[4px] overflow-hidden shadow-2xl border border-white/[0.04]">
+              <Image
+                src="/images/aboutus-bg.png"
+                alt="Editorial fashion models representation"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 800px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              {/* Soft vignette match */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            <div className="grid grid-cols-2 gap-px bg-neutral-800/60 border border-neutral-800/60 w-full max-w-md lg:max-w-none mt-6 sm:mt-0 sm:absolute sm:-bottom-12 sm:-left-12 lg:-left-16 sm:w-[calc(100%+3rem)] lg:w-[110%] backdrop-blur-md shadow-2xl z-20">
-              <div className="bg-[#0c0c0c]/90 p-6 sm:p-8 flex flex-col justify-center min-h-[110px] sm:min-h-[130px]">
-                <span className="text-2xl sm:text-3xl font-serif text-[#e11d48] block mb-1">25+</span>
-                <span className="text-[10px] tracking-widest text-neutral-400 uppercase font-medium">Years of Legacy</span>
-              </div>
-              <div className="bg-[#0c0c0c]/90 p-6 sm:p-8 flex flex-col justify-center min-h-[110px] sm:min-h-[130px]">
-                <span className="text-2xl sm:text-3xl font-serif text-[#e11d48] block mb-1">12K+</span>
-                <span className="text-[10px] tracking-widest text-neutral-400 uppercase font-medium">Graduates</span>
-              </div>
-              <div className="bg-[#0c0c0c]/90 p-6 sm:p-8 flex flex-col justify-center min-h-[110px] sm:min-h-[130px]">
-                <span className="text-2xl sm:text-3xl font-serif text-[#e11d48] block mb-1">97%</span>
-                <span className="text-[10px] tracking-widest text-neutral-400 uppercase font-medium">Placement Success</span>
-              </div>
-              <div className="bg-[#0c0c0c]/90 p-6 sm:p-8 flex flex-col justify-center min-h-[110px] sm:min-h-[130px]">
-                <span className="text-2xl sm:text-3xl font-serif text-[#e11d48] block mb-1">38+</span>
-                <span className="text-[10px] tracking-widest text-neutral-400 uppercase font-medium">Industry Collaborations</span>
-              </div>
+            {/* Overlaid Data Metrics Matrix Grid */}
+            <div className="sm:absolute sm:bottom-0 gap-2 sm:left-0 sm:right-20 grid grid-cols-2 bg-white/[0.05] border border-white/[0.05] backdrop-blur-md rounded-[2px]">
+              {stats.map((stat, idx) => (
+                <div 
+                  key={idx} 
+                  className="bg-black/40 p-6 md:p-8 flex flex-col justify-center items-start transition-colors duration-300 hover:bg-black/60"
+                >
+                  <span className="font-serif text-3xl md:text-4xl font-semibold text-[#E5333B] tracking-tight mb-2">
+                    {stat.value}
+                  </span>
+                  <span className="text-[10px] md:text-[11px] font-bold text-gray-400 tracking-[0.15em] uppercase">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </div>
+
           </div>
+
         </div>
-      </section>
+      </section>      
 
       {/* 2. OUR STORY SECTION */}
       <section className="bg-black py-20 px-6 md:py-28 lg:px-16 w-full flex items-center justify-center">
@@ -194,25 +219,31 @@ export default function UnifiedPIFTLandingPage() {
             <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-2 border-r-2 border-[#e11d48] pointer-events-none hidden sm:block" />
 
             <div className="grid grid-cols-2 gap-4">
-              <div className="col-span-2 aspect-[4/3] w-full bg-neutral-900 overflow-hidden">
-                <img
+              <div className="col-span-2 relative aspect-[4/3] w-full bg-neutral-900 overflow-hidden">
+                <Image
                   src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=1000"
                   alt="Fashion sketches"
-                  className="w-full h-full object-cover filter grayscale-[20%]"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="object-cover filter grayscale-[20%]"
                 />
               </div>
-              <div className="aspect-square w-full bg-neutral-900 overflow-hidden">
-                <img
+              <div className="relative aspect-square w-full bg-neutral-900 overflow-hidden">
+                <Image
                   src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&q=80&w=600"
                   alt="Moodboard swatches"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 300px"
+                  className="object-cover"
                 />
               </div>
-              <div className="aspect-square w-full bg-neutral-900 overflow-hidden">
-                <img
+              <div className="relative aspect-square w-full bg-neutral-900 overflow-hidden">
+                <Image
                   src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&q=80&w=600"
                   alt="Textile workshop"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 300px"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -359,25 +390,31 @@ export default function UnifiedPIFTLandingPage() {
           <div className="lg:col-span-6 relative w-full flex justify-center items-center px-4 sm:px-8 lg:px-4">
             <div className="w-full max-w-xl lg:max-w-none flex flex-col gap-4">
               <div className="relative aspect-[16/10] w-full bg-neutral-900 overflow-hidden shadow-xl border border-neutral-900/40">
-                <img
+                <Image
                   src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1000"
                   alt="High fashion presentation"
-                  className="w-full h-full object-cover filter brightness-90"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 600px"
+                  className="object-cover filter brightness-90"
                 />
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-[4/3] w-full bg-neutral-900 overflow-hidden shadow-xl border border-neutral-900/40">
-                  <img
+                <div className="relative aspect-[4/3] w-full bg-neutral-900 overflow-hidden shadow-xl border border-neutral-900/40">
+                  <Image
                     src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&q=80&w=600"
                     alt="Interior texturing samples"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 300px"
+                    className="object-cover"
                   />
                 </div>
-                <div className="aspect-[4/3] w-full bg-neutral-900 overflow-hidden shadow-xl border border-neutral-900/40">
-                  <img
+                <div className="relative aspect-[4/3] w-full bg-neutral-900 overflow-hidden shadow-xl border border-neutral-900/40">
+                  <Image
                     src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&q=80&w=600"
                     alt="Architecture workspace setup"
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 50vw, 300px"
+                    className="object-cover"
                   />
                 </div>
               </div>
@@ -451,7 +488,13 @@ export default function UnifiedPIFTLandingPage() {
         <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-4 lg:gap-5 items-start">
           <div className="lg:col-span-7 flex flex-col gap-4 lg:gap-5 w-full">
             <div className={`relative w-full ${galleryItems[0].aspectClass} bg-neutral-900 overflow-hidden group border border-neutral-900/40`}>
-              <img src={galleryItems[0].imageUrl} alt={galleryItems[0].title} className="w-full h-full object-cover brightness-90 transition-transform duration-700 group-hover:scale-105" />
+              <Image 
+                src={galleryItems[0].imageUrl} 
+                alt={galleryItems[0].title} 
+                fill
+                sizes="(max-width: 1024px) 100vw, 750px"
+                className="object-cover brightness-90 transition-transform duration-700 group-hover:scale-105" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-6 left-6 z-10 flex flex-col gap-2">
                 <div className="w-6 h-[2px] bg-[#be123c]" />
@@ -460,7 +503,13 @@ export default function UnifiedPIFTLandingPage() {
             </div>
 
             <div className="relative w-full aspect-[21/9] bg-neutral-900 overflow-hidden group border border-neutral-900/40">
-              <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000" alt="Modern Campus Architecture" className="w-full h-full object-cover brightness-[0.8] transition-transform duration-700 group-hover:scale-105" />
+              <Image 
+                src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=1000" 
+                alt="Modern Campus Architecture" 
+                fill
+                sizes="(max-width: 1024px) 100vw, 750px"
+                className="object-cover brightness-[0.8] transition-transform duration-700 group-hover:scale-105" 
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute bottom-6 left-6 z-10 flex flex-col gap-2">
                 <div className="w-6 h-[2px] bg-[#be123c]" />
@@ -472,7 +521,13 @@ export default function UnifiedPIFTLandingPage() {
           <div className="lg:col-span-5 grid grid-cols-2 gap-4 lg:gap-5 w-full">
             {galleryItems.slice(1).map((item, index) => (
               <div key={index} className={`relative w-full ${item.aspectClass} bg-neutral-900 overflow-hidden group border border-neutral-900/40`}>
-                <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover brightness-[0.75] transition-transform duration-700 group-hover:scale-105" />
+                <Image 
+                  src={item.imageUrl} 
+                  alt={item.title} 
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 280px"
+                  className="object-cover brightness-[0.75] transition-transform duration-700 group-hover:scale-105" 
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                 <div className="absolute bottom-5 left-5 z-10 flex flex-col gap-2">
                   <div className="w-5 h-[2px] bg-[#be123c]" />
@@ -559,7 +614,13 @@ export default function UnifiedPIFTLandingPage() {
 
         <div className="max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-12 bg-[#080808] border border-neutral-900/60 shadow-2xl overflow-hidden">
           <div className="md:col-span-6 relative aspect-[4/5] md:aspect-auto w-full h-full min-h-[400px] md:min-h-[550px] bg-neutral-900 overflow-hidden">
-            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" alt="Founder & Director" className="w-full h-full object-cover filter grayscale contrast-115 brightness-90" />
+            <Image 
+              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" 
+              alt="Founder & Director" 
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover filter grayscale contrast-115 brightness-90" 
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
             <div className="absolute bottom-6 left-6 z-10 flex items-center gap-2 opacity-60">
               <div className="w-4 h-[1px] bg-[#be123c]" />
@@ -636,8 +697,14 @@ export default function UnifiedPIFTLandingPage() {
               </div>
 
               <div className="flex items-center gap-4 pt-8 border-t border-neutral-900/60 relative z-10 mt-6">
-                <div className="w-12 h-12 bg-neutral-900 overflow-hidden flex-shrink-0 border border-neutral-800 filter grayscale group-hover:grayscale-0 transition-all duration-500">
-                  <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
+                <div className="relative w-12 h-12 bg-neutral-900 overflow-hidden flex-shrink-0 border border-neutral-800 filter grayscale group-hover:grayscale-0 transition-all duration-500">
+                  <Image 
+                    src={item.imageUrl} 
+                    alt={item.name} 
+                    fill
+                    sizes="48px"
+                    className="object-cover" 
+                  />
                 </div>
                 <div className="flex flex-col space-y-0.5">
                   <h4 className="text-sm font-serif text-neutral-200">{item.name}</h4>
@@ -653,7 +720,13 @@ export default function UnifiedPIFTLandingPage() {
       {/* 13. FUTURE VISION SECTION */}
       <section className="relative min-h-screen w-full bg-[#030102] overflow-hidden flex items-center justify-center px-6 py-20 md:py-28">
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-          <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1920" alt="Future Design Background" className="w-full h-full object-cover filter grayscale contrast-125" />
+          <Image 
+            src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1920" 
+            alt="Future Design Background" 
+            fill
+            priority
+            className="object-cover filter grayscale contrast-125" 
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
         </div>
