@@ -4,7 +4,7 @@ export default function TextileHero() {
   const bottomTags = ['3 Years Program', 'Industry Projects', 'CAD Training', 'Portfolio Development'];
   return (
     <section className="relative w-full min-h-screen flex flex-col justify-between bg-[#0A0A0A] pt-32 pb-12 overflow-hidden">
-      <div className="absolute inset-0 z-0 bg-cover bg-center brightness-[0.25]" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1800&q=80')` }} />
+      <div className="absolute inset-0 z-0 bg-cover bg-center brightness-[0.25]" style={{ backgroundImage: `url('/images/textile-herobg.png')` }} />
       <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full my-auto relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -19,7 +19,7 @@ export default function TextileHero() {
           </div>
           <div className="lg:col-span-5 flex justify-center lg:justify-end w-full">
             <div className="relative w-full max-w-[420px] aspect-square rounded-2xl overflow-hidden border border-white/[0.08] bg-zinc-950 shadow-2xl">
-              <Image src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=600&q=80" alt="Crimson Brocade Pattern Asset" fill className="object-cover" />
+              <Image src="/images/textile-heroimg.png" alt="Crimson Brocade Pattern Asset" fill className="object-cover" />
             </div>
           </div>
         </div>

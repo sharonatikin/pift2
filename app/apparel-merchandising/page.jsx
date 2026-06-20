@@ -1,6 +1,3 @@
-'use client';
-
-import React, { useState } from 'react';
 import { 
   ArrowRight, 
   FileText, 
@@ -22,9 +19,14 @@ import {
   ChevronDown 
 } from 'lucide-react';
 
+import Hero from './../../components/apparel/Hero.jsx'
+import SuccessStories from './../../components/apparel/SuccessStories.jsx'
+import JourneySection from './../../components/apparel/JourneySection.jsx'
+import CTASection from './../../components/apparel/CTASection.jsx'
+import FAQ from './../../components/apparel/FAQ.jsx'
+
+
 export default function Page() {
-  // Setup interactive open/close state tracking for individual accordion rows
-  const [openIndex, setOpenIndex] = useState(null);
 
   const highlights = [
     { title: 'Fashion Buying', icon: ShoppingBag },
@@ -102,36 +104,11 @@ export default function Page() {
     { title: 'Category Manager', icon: Layers },
   ];
 
-  const faqs = [
-    {
-      question: 'What is Apparel Merchandising?',
-      answer: 'Apparel Merchandising is the strategic business management of the garment transformation lifecycle—bridging fashion design concept with retail market execution. It directly coordinates trend intelligence, textile supply chains, costing dynamics, and inventory distribution vectors.',
-    },
-    {
-      question: 'Who can enroll in this program?',
-      answer: 'The track is intentionally built for aspiring fashion brand managers, designers seeking deeper supply-chain mechanics, corporate pivoters from architectural or graphic lines, and entrepreneurs looking to technicalize their commercial manufacturing capabilities.',
-    },
-    {
-      question: 'What career opportunities are available?',
-      answer: 'Graduates enter high-impact roles including Apparel Merchandisers, International Fashion Buyers, Retail Asset Planners, Production Sourcing Executives, Strategic Brand Managers, and Global Supply Chain Analysts.',
-    },
-    {
-      question: 'Do students receive industry exposure?',
-      answer: 'Yes. The structure includes fully integrated manufacturing facility residencies, active commercial showroom forecasting labs, real-world retail simulations, and collaborative vendor network development projects.',
-    },
-    {
-      question: 'Are internships included?',
-      answer: 'The program closes with an intensive industry integration internship cycle alongside leading global fashion ateliers and corporate retail chains, focusing on portfolio synthesis and permanent operational positioning.',
-    },
-  ];
 
-  const toggleFAQ = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
 
   return (
     <div className="min-h-screen bg-[#050102] text-white font-sans antialiased selection:bg-[#e6001a]">
-  
+      <Hero />
 
       {/* 3. PROGRAM OVERVIEW SECTION */}
       <section className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative bg-[#060203] overflow-hidden">
@@ -140,7 +117,7 @@ export default function Page() {
           <div className="md:col-span-5 w-full flex justify-center md:justify-start">
             <div className="relative w-full max-w-[440px] aspect-[4/5] rounded-[32px] overflow-hidden border border-white/5 shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80" 
+                src="/images/apparel-sec2.png" 
                 alt="Industrial tailoring" 
                 className="w-full h-full object-cover grayscale opacity-90 contrast-105 transition duration-500 hover:scale-102"
               />
@@ -300,14 +277,14 @@ export default function Page() {
             <div className="lg:col-span-5 flex gap-4 h-[450px] sm:h-[550px] w-full max-w-[500px] mx-auto lg:mx-0">
               <div className="w-1/2 h-full rounded-[28px] overflow-hidden border border-white/5 shadow-2xl relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" 
+                  src="/images/apparel-exp1.png" 
                   alt="Garment assembly floor" 
                   className="w-full h-full object-cover grayscale opacity-85 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                 />
               </div>
               <div className="w-1/2 h-full rounded-[28px] overflow-hidden border border-white/5 shadow-2xl relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=600&q=80" 
+                  src="/images/apparel-exp2.png" 
                   alt="Industrial textile facility" 
                   className="w-full h-full object-cover grayscale opacity-80 contrast-110 transition duration-700 ease-out group-hover:scale-105"
                 />
@@ -367,36 +344,11 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 10. FREQUENTLY ASKED QUESTIONS SECTION */}
-      <section className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-[#e6001a]/5 blur-[140px] rounded-full pointer-events-none" />
-        <div className="max-w-4xl mx-auto relative z-10">
-          <div className="text-center mb-16 md:mb-20">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.15]">
-              <span className="font-serif block text-white font-medium">Frequently Asked</span>
-              <span className="italic font-serif block text-[#e6001a] font-normal mt-2">Questions</span>
-            </h2>
-          </div>
-          <div className="space-y-4 max-w-3xl mx-auto">
-            {faqs.map((faq, idx) => {
-              const isOpen = openIndex === idx;
-              return (
-                <div key={idx} className="bg-[#110d0e] border border-white/[0.03] hover:border-white/[0.07] rounded-[20px] overflow-hidden transition-all duration-300 ease-out">
-                  <button onClick={() => toggleFAQ(idx)} className="w-full px-6 md:px-8 py-5 md:py-6 flex items-center justify-between text-left group">
-                    <span className="text-sm md:text-base font-medium tracking-wide text-zinc-200 group-hover:text-white transition duration-200">{faq.question}</span>
-                    <div className="w-8 h-8 rounded-full bg-white/[0.01] border border-white/5 flex items-center justify-center text-zinc-400 group-hover:text-[#e6001a] group-hover:border-[#e6001a]/10 transition-all duration-300 flex-shrink-0 ml-4">
-                      <ChevronDown className={`w-4 h-4 transition-transform duration-300 ease-out ${isOpen ? 'rotate-180 text-[#e6001a]' : 'rotate-0'}`} />
-                    </div>
-                  </button>
-                  <div className={`transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[300px] opacity-100 border-t border-white/[0.02]' : 'max-h-0 opacity-0 pointer-events-none'}`}>
-                    <div className="px-6 md:px-8 py-5 md:py-6 text-xs md:text-sm text-zinc-400 font-light leading-relaxed bg-black/[0.08]">{faq.answer}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <SuccessStories />
+      <JourneySection />
+      <FAQ />
+      <CTASection />
+      
 
     </div>
   );

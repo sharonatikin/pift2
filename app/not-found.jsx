@@ -54,42 +54,7 @@ export default function CombinedPiftPage() {
       {/* ========================================================================= */}
       {/* 1. HEADER NAVBAR (From Page 10)                                           */}
       {/* ========================================================================= */}
-      <header className="w-full max-w-7xl mx-auto px-6 py-5 flex items-center justify-between border-b border-white/5 relative z-50">
-        <div className="flex items-center space-x-3 group cursor-pointer">
-          <div className="w-8 h-8 bg-[#a91d22] flex items-center justify-center font-sans font-black text-white text-lg tracking-tighter">
-            P
-          </div>
-          <div className="leading-tight">
-            <div className="font-sans font-bold text-xs tracking-[0.2em] text-white">PIFT</div>
-            <div className="font-sans text-[9px] tracking-[0.15em] text-zinc-400 uppercase">Pinnacle Institute</div>
-          </div>
-        </div>
-
-        <nav className="hidden md:flex items-center space-x-8 font-sans text-xs tracking-[0.2em] uppercase text-zinc-300">
-          <a href="#" className="hover:text-white transition-colors duration-300">Program</a>
-          <a href="#" className="hover:text-white transition-colors duration-300">Curriculum</a>
-          <a href="#" className="hover:text-white transition-colors duration-300">Studio</a>
-          <a href="#" className="hover:text-white transition-colors duration-300">Careers</a>
-          <a href="#" className="hover:text-white transition-colors duration-300">Admissions</a>
-        </nav>
-
-        <div className="hidden md:block">
-          <a 
-            href="#" 
-            className="bg-[#a91d22] hover:bg-[#c22228] text-white font-sans text-xs tracking-[0.2em] uppercase px-6 py-3 font-semibold transition-all duration-300 block"
-          >
-            Apply Now
-          </a>
-        </div>
-
-        <button 
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-white focus:outline-none p-1"
-          aria-label="Toggle Menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </header>
+      
 
       {/* Mobile Navigation Drawer */}
       <div className={`fixed inset-0 bg-[#050505] z-40 flex flex-col justify-center items-center space-y-8 font-sans text-sm tracking-[0.2em] uppercase transition-all duration-500 ease-in-out md:hidden ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>

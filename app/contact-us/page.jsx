@@ -9,6 +9,7 @@ import {
   MapPin, 
   PhoneCall, 
   Mail, 
+  HelpCircle,
   User, 
   MessageSquare, 
   FacebookIcon, 
@@ -23,6 +24,7 @@ import {
   FaLinkedinIn,
   FaXTwitter,
 } from "react-icons/fa6";
+
 export default function Page () {
   // Navigation State
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,7 +44,7 @@ export default function Page () {
     { name: 'Portfolio', href: '#', active: false },
     { name: 'Team', href: '#', active: false },
     { name: 'Pages', href: '#', active: false },
-    { name: 'Contact', href: '#', active: true }, // Set true since this is the combined Contact page
+    { name: 'Contact', href: '#', active: true },
   ];
 
   const infoCards = [
@@ -50,8 +52,11 @@ export default function Page () {
       icon: MapPin,
       title: 'PIFT INSITUTE',
       content: (
-        <p className="text-zinc-400 text-sm sm:text-base font-medium leading-relaxed max-w-[210px] mx-auto">
-          119, Mall Road, Jawala Temple Street, Fountain Chowk, Ludhiana, Punjab – India
+        <p className="text-zinc-400 text-[13px] sm:text-sm font-normal leading-relaxed max-w-[200px] mx-auto">
+          119, Mall Road,<br />
+          Jawala Temple Street,<br />
+          Fountain Chowk,<br />
+          Ludhiana, Punjab – India
         </p>
       ),
     },
@@ -59,21 +64,21 @@ export default function Page () {
       icon: PhoneCall,
       title: 'Mobile Number',
       content: (
-        <div className="flex flex-col space-y-1 text-sm sm:text-base font-semibold tracking-wide">
-          <a href="tel:+919779115198" className="text-zinc-300 hover:text-[#ff2a2a] underline decoration-zinc-600 hover:decoration-[#ff2a2a] transition-colors duration-200">
+        <div className="flex flex-col space-y-1 text-[13px] sm:text-sm font-normal">
+          <a href="tel:+919779115198" className="text-zinc-400 hover:text-[#ff2a2a] underline transition-colors duration-200">
             +91-9779115198
           </a>
-          <a href="tel:+918847089593" className="text-zinc-300 hover:text-[#ff2a2a] underline decoration-zinc-600 hover:decoration-[#ff2a2a] transition-colors duration-200">
+          <a href="tel:+918847089593" className="text-zinc-400 hover:text-[#ff2a2a] underline transition-colors duration-200">
             +91-8847089593
           </a>
         </div>
       ),
     },
     {
-      icon: MapPin,
+      icon: HelpCircle,
       title: 'Have Quires ?',
       content: (
-        <p className="text-zinc-300 text-sm sm:text-base font-medium tracking-wide">
+        <p className="text-zinc-400 text-[13px] sm:text-sm font-normal">
           Riverbend Parkway (Route)
         </p>
       ),
@@ -82,7 +87,7 @@ export default function Page () {
       icon: Mail,
       title: 'Need Support ?',
       content: (
-        <a href="mailto:contact@piftdesign.in" className="text-zinc-300 text-sm sm:text-base font-semibold tracking-wide underline decoration-zinc-600 hover:text-[#ff2a2a] hover:decoration-[#ff2a2a] transition-colors duration-200 break-all px-2 block">
+        <a href="mailto:contact@piftdesign.in" className="text-zinc-400 text-[13px] sm:text-sm font-normal underline hover:text-[#ff2a2a] transition-colors duration-200 break-all px-2 block">
           contact@piftdesign.in
         </a>
       ),
@@ -110,7 +115,7 @@ export default function Page () {
       {/* ========================================================================= */}
       {/* 2. COMPONENT: CONTACT HERO HERO BANNER & TEXT BACKDROP LAYER              */}
       {/* ========================================================================= */}
-      <section className="relative w-full flex flex-col items-center justify-center text-center px-4 pt-24 pb-20 border-b border-zinc-900 overflow-hidden">
+      <section className="relative w-full flex flex-col items-center justify-center text-center px-4 pt-24 pb-20   overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[65%] select-none pointer-events-none whitespace-nowrap z-0">
           <span 
             className="text-7xl sm:text-8xl md:text-9xl font-black uppercase tracking-tight text-transparent opacity-[0.06]"
@@ -171,52 +176,12 @@ export default function Page () {
         </div>
       </div>
 
-      {/* ========================================================================= */}
-      {/* 4. COMPONENT: MATRIX LOCATION LABELS & ADDRESS BLOCKS GRID               */}
-      {/* ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
-        <div className="space-y-4 mb-12">
-          <div className="flex items-center gap-3">
-            <div className="w-6 h-[2px] bg-[#ff2a2a]" />
-            <span className="text-xs sm:text-sm font-bold tracking-widest text-[#ff2a2a] uppercase">
-              Address
-            </span>
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-            PIFT Institute Location
-          </h3>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8">
-          {infoCards.map((card, index) => {
-            const IconComponent = card.icon;
-            return (
-              <div 
-                key={index} 
-                className="bg-[#141414] border border-zinc-900 rounded-sm px-6 py-12 flex flex-col items-center text-center space-y-6 hover:border-zinc-800 hover:bg-[#181818] transition-all duration-300 shadow-xl"
-              >
-                <div className="w-14 h-14 rounded-full bg-[#ff2a2a] flex items-center justify-center text-white shadow-lg shadow-[#ff2a2a]/20">
-                  <IconComponent className="w-6 h-6 stroke-[2]" />
-                </div>
-                <div className="space-y-3 w-full">
-                  <h4 className="text-base sm:text-lg font-bold text-white tracking-wide">
-                    {card.title}
-                  </h4>
-                  <div className="pt-1">
-                    {card.content}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
 
       {/* ========================================================================= */}
       {/* 5. COMPONENT: FULL DUAL-CARD INTEGRATED SIGN UP / INTERACTIVE FORM       */}
       {/* ========================================================================= */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pb-28">
-        <div className="w-full bg-[#111111] border border-zinc-900 shadow-2xl rounded-sm p-6 sm:p-8 md:p-10 lg:p-12">
+      <section className=" bg-[#FF2B2B] flex items-center justify-center mx-auto px-4 sm:px-6 lg:px-28 py-28 ">
+        <div className="w-full bg-[#111111] rounded-sm max-w-6xl border border-zinc-900 shadow-2xl rounded-sm p-6 sm:p-8 md:p-10 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             
             {/* Form Left Container Wrap */}
@@ -360,6 +325,81 @@ export default function Page () {
         </div>
       </section>
 
+      {/* ========================================================================= */}
+      {/* 4. COMPONENT: MATRIX LOCATION LABELS & ADDRESS BLOCKS GRID               */}
+      {/* ========================================================================= */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12 pb-24">
+        {/* Header Elements */}
+        <div className="space-y-2 mb-10">
+          <div className="flex items-center gap-2">
+            <div className="w-[14px] h-[2px] bg-[#ff2a2a]" />
+            <span className="text-xs font-bold tracking-wider text-[#ff2a2a] uppercase">
+              ADDRESS
+            </span>
+          </div>
+          <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            PIFT Institute Location
+          </h3>
+        </div>
+
+        {/* Info Grid Cards Wrapper */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-8">
+          {infoCards.map((card, index) => {
+            const IconComponent = card.icon;
+            return (
+              <div 
+                key={index} 
+                className="bg-[#181818] rounded-xs p-6 pt-10 pb-8 flex flex-col items-center text-center space-y-5"
+              >
+                {/* Red Circular Rounded Icon Frame Container */}
+                <div className="w-12 h-12 rounded-full bg-[#ff2a2a] flex items-center justify-center text-white">
+                  <IconComponent className="w-5 h-5 stroke-[2]" />
+                </div>
+                
+                {/* Text Blocks Content Frame */}
+                <div className="space-y-2 w-full">
+                  <h4 className="text-[15px] sm:text-base font-medium text-white tracking-wide">
+                    {card.title}
+                  </h4>
+                  <div className="pt-0.5">
+                    {card.content}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* High-fidelity Custom Map Visual Segment Block */}
+        <div className="w-full bg-white p-4 sm:p-5 rounded-xs shadow-md">
+          <div className="relative w-full overflow-hidden rounded-xs bg-[#e5e3df] aspect-[16/10] md:aspect-[21/9]">
+            {/* Embedded Stylized Map Imagery Simulation Layer */}
+            <div 
+              className="absolute inset-0 bg-cover bg-center mix-blend-normal opacity-90 grayscale contrast-[1.05] brightness-[0.98]"
+              style={{ 
+                backgroundImage: `url('https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80')` 
+              }}
+            />
+            
+            {/* Simulated Modern Street Overlay Filter (Fallback look representation) */}
+            <div className="absolute inset-0 bg-zinc-200/40 mix-blend-color" />
+
+            {/* Custom Styled Map Location Pin Pointer Anchor Element */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-20">
+              {/* Dynamic Map Text Label */}
+              <div className="bg-[#ff2a2a] text-white text-[10px] sm:text-xs font-bold tracking-wider px-4 py-2 uppercase shadow-md whitespace-nowrap rounded-xs">
+                PIFT INSTITUTE
+              </div>
+              {/* Vertical Connector Line Segment */}
+              <div className="w-[3px] h-10 bg-[#ff2a2a] -mt-px shadow-sm" />
+              {/* Base Bubble Anchor */}
+              <div className="w-4 h-4 bg-[#ff2a2a] rounded-full border-2 border-white shadow-md -mt-1" />
+              {/* Outer Circular Pulse Wave Effect Accent */}
+              <div className="absolute -bottom-1.5 w-7 h-3 bg-black/15 blur-[2px] rounded-full -z-10" />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
