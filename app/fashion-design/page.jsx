@@ -298,7 +298,7 @@ export default function FashionDesignProgramPage() {
             <h2 className="text-4xl sm:text-5xl lg:text-[56px] font-normal leading-[1.1] tracking-tight">
               <span className="block font-serif text-white">Fashion Is More</span>
               <span className="block font-serif text-white">Than Clothing.</span>
-              <span className="block font-serif italic text-[#E31C3D] mt-1">It's Identity.</span>
+              <span className="block font-serif italic text-[#E31C3D] mt-1">It&apos;s Identity.</span>
             </h2>
             <p className="text-[#a3a3a3] text-sm sm:text-base leading-relaxed font-light tracking-wide max-w-xl">
               The Fashion Design program equips students with creative, technical and professional skills required to build successful careers in fashion design, styling, apparel production, merchandising and entrepreneurship. Students learn through practical studio experiences, design projects and industry interactions.

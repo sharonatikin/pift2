@@ -80,11 +80,11 @@ export default function CombinedPiftPage() {
             404
           </h1>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-white leading-[1.15] mb-6 tracking-wide">
-            Oops — This <span className="italic text-[#a91d22] font-serif">Design</span> Doesn't Exist.
+            Oops — This <span className="italic text-[#a91d22] font-serif">Design</span> Doesn&apos;t Exist.
           </h2>
           <div className="w-10 h-[2px] bg-[#a91d22] mb-8"></div>
           <p className="font-sans text-sm sm:text-base text-zinc-400 leading-relaxed tracking-wide font-light mb-10 max-w-md">
-            The page you're looking for may have been moved, redesigned, or is no longer available. 
+            The page you&apos;re looking for may have been moved, redesigned, or is no longer available. 
             Explore our programs, discover our creative community, or return to the homepage.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-4 font-sans text-xs tracking-[0.15em] uppercase font-medium">
@@ -136,7 +136,7 @@ export default function CombinedPiftPage() {
             Discover Your Creative Future
           </h2>
           <p className="font-sans text-xs sm:text-sm tracking-widest text-zinc-500 uppercase font-light">
-            While you're here, explore what awaits you at PIFT.
+            While you&apos;re here, explore what awaits you at PIFT.
           </p>
         </div>
 
@@ -218,7 +218,7 @@ export default function CombinedPiftPage() {
         <div className="max-w-xl">
           <div className="w-6 h-[1px] bg-[#a91d22] mb-3"></div>
           <p className="text-zinc-500 text-sm sm:text-base italic tracking-wide font-light leading-relaxed">
-            "Every great designer gets lost before discovering something extraordinary."
+            &quot;Every great designer gets lost before discovering something extraordinary.&quot;
           </p>
         </div>
       </footer>

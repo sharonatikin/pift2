@@ -333,7 +333,7 @@ export default function AdvisoryBoardPage() {
               <span className="text-[#e31e24] font-medium">Excellence.</span>
             </h1>
             <p className="text-[#999491] text-sm md:text-base leading-relaxed max-w-md font-sans">
-              PIFT's Advisory Board brings together distinguished leaders, creative visionaries, 
+              PIFT&apos;s Advisory Board brings together distinguished leaders, creative visionaries, 
               educators, entrepreneurs and industry experts who help shape the future of design 
               education and industry relevance.
             </p>
@@ -471,7 +471,7 @@ export default function AdvisoryBoardPage() {
             </p>
             <div className="relative pl-6 border-l-2 border-[#e31e24] max-w-xl py-1">
               <p className="text-[#d4ceca] font-serif italic text-base sm:text-lg leading-relaxed">
-                "Design education must empower students to become creators, innovators and leaders capable of transforming industries."
+                &quot;Design education must empower students to become creators, innovators and leaders capable of transforming industries.&quot;
               </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl pt-2">
@@ -883,7 +883,7 @@ export default function AdvisoryBoardPage() {
           <div className="w-16 h-[1.5px] bg-[#e31e24] my-2" />
           <p className="text-[#696360] font-serif font-light text-sm sm:text-base md:text-[17px] leading-relaxed max-w-2xl px-4">
             As industries evolve, PIFT continues to collaborate with thought leaders and 
-            innovators to ensure students remain prepared for tomorrow's opportunities.
+            innovators to ensure students remain prepared for tomorrow&apos;s opportunities.
           </p>
         </div>
         <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#010000] to-transparent pointer-events-none" />

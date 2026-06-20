@@ -217,7 +217,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.15]">
-              <span className="font-serif block text-white font-medium">What You'll</span>
+              <span className="font-serif block text-white font-medium">What You&apos;ll</span>
               <span className="italic font-serif block text-[#e6001a] font-normal mt-2">Learn</span>
             </h2>
           </div>

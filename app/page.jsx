@@ -190,7 +190,7 @@ export default function PiftInstitutionalPage() {
             <div className="flex items-center space-x-3">
               <div className="h-[2px] w-8 bg-[#e11d48]" />
               <span className="text-[#e11d48] uppercase tracking-[0.2em] text-xs md:text-sm font-semibold font-sans">
-                India's Premier Fashion & Design Institute
+                India&apos;s Premier Fashion & Design Institute
               </span>
             </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-serif tracking-tight leading-[1.1] text-stone-100">
@@ -351,7 +351,7 @@ export default function PiftInstitutionalPage() {
             Shape Your <span className="text-[#ff4646] italic font-medium font-serif">Future</span>
           </h2>
           <p className="text-stone-400 font-sans text-sm md:text-base text-center max-w-2xl font-light leading-relaxed mb-16">
-            Explore industry-leading programs designed for tomorrow's creative professionals.
+            Explore industry-leading programs designed for tomorrow&apos;s creative professionals.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-6xl">
             {programs.map((program, idx) => (
@@ -636,7 +636,7 @@ export default function PiftInstitutionalPage() {
             Launching <span className="text-[#ff4646] italic font-medium font-serif">Creative Careers</span>
           </h2>
           <p className="text-stone-400 font-sans text-sm md:text-base text-center max-w-2xl font-light leading-relaxed mb-16">
-            Our graduates lead in India's most prestigious fashion houses, studios, and retail empires.
+            Our graduates lead in India&apos;s most prestigious fashion houses, studios, and retail empires.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-5xl mb-20">
             {placementMetrics.map((metric, idx) => (

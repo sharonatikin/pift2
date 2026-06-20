@@ -55,7 +55,7 @@ export default function FeaturedSkills() {
         {/* Section Heading with Mixed Serif Typography */}
         <div className="text-center mb-16">
           <h2 className="text-white text-4xl sm:text-5xl lg:text-[54px] font-normal font-serif tracking-tight leading-[1.2]">
-            Skills You'll <br />
+            Skills You&apos;ll <br />
             <span className="text-[#ff2a2a] italic font-serif font-medium tracking-wide block mt-1">Develop</span>
           </h2>
         </div>

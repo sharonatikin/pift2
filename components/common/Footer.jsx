@@ -44,7 +44,7 @@ export default function Footer() {
             </div>
 
             <p className="text-sm font-light text-neutral-400 leading-relaxed max-w-sm">
-              India's most prestigious institute for Fashion Design, Interior Design, Textile Design and Creative Industries.
+              India&apos;s most prestigious institute for Fashion Design, Interior Design, Textile Design and Creative Industries.
             </p>
 
             <div className="flex flex-col gap-y-3.5 text-sm font-light text-neutral-300">

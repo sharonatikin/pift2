@@ -279,7 +279,7 @@ export default function Page () {
                   Say Hello!
                 </h3>
                 <p className="text-xs sm:text-sm text-zinc-400 font-medium leading-relaxed tracking-wide">
-                  Thank you for your interest in PIFT! Whether you're curious about transitioning your career in design courses we feed your curiosity.
+                  Thank you for your interest in PIFT! Whether you&apos;re curious about transitioning your career in design courses we feed your curiosity.
                 </p>
               </div>
 
@@ -300,8 +300,8 @@ export default function Page () {
                 <h4 className="text-xs sm:text-sm font-bold text-white tracking-wider uppercase">
                   Follow Us
                 </h4>
-                <p className="text-xs text-zinc-500 leading-relaxed max-w-sm">
-                  Contact us today via the form below social Share and let's take the first step.
+                <p className="text-xs text-zinc-500 leading-relaxed max-sm">
+                  Contact us today via the form below social Share and let&apos;s take the first step.
                 </p>
                 
                 <div className="flex items-center gap-3 pt-2">

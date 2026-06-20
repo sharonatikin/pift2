@@ -31,7 +31,7 @@ const App = () => {
           </div>
 
           <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
-            Develop expertise in sourcing, product planning, supply chain management, buying, retail operations, production coordination, vendor management and global fashion merchandising. Learn how products move from concept to consumer in today's fashion industry.
+            Develop expertise in sourcing, product planning, supply chain management, buying, retail operations, production coordination, vendor management and global fashion merchandising. Learn how products move from concept to consumer in today&apos;s fashion industry.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-5 pt-2">

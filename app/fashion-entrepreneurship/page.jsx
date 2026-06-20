@@ -312,7 +312,7 @@ export default function Page() {
               </div>
               <p className="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-xl font-light">
                 Our comprehensive program covers fashion industry fundamentals, brand creation, retail operations, 
-                merchandising, marketing strategy, and entrepreneurship development. You'll learn to build 
+                merchandising, marketing strategy, and entrepreneurship development. You&apos;ll learn to build 
                 sustainable fashion businesses from concept to launch.
               </p>
             </div>
@@ -373,7 +373,7 @@ export default function Page() {
           <div className="text-left max-w-2xl mb-16 md:mb-24 space-y-4">
             <p className="text-[10px] font-bold tracking-[0.3em] text-zinc-500 uppercase">Curriculum</p>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-[1.15]">
-              <span className="font-serif block text-white font-medium">What You'll</span>
+              <span className="font-serif block text-white font-medium">What You&apos;ll</span>
               <span className="italic font-serif block text-[#e6001a] font-normal mt-2">Master</span>
             </h2>
           </div>
