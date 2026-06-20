@@ -206,7 +206,7 @@ export default function Page() {
     },
   ];
 
-  const toggleFAQ = (index: number) => {
+  const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
