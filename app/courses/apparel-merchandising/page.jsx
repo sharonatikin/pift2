@@ -20,11 +20,11 @@ import {
 } from 'lucide-react';
 import Image from 'next/image'; // Imported Next.js Image component
 
-import Hero from './../../components/apparel/Hero.jsx'
-import SuccessStories from './../../components/apparel/SuccessStories.jsx'
-import JourneySection from './../../components/apparel/JourneySection.jsx'
-import CTASection from './../../components/apparel/CTASection.jsx'
-import FAQ from './../../components/apparel/FAQ.jsx'
+import Hero from '../../../components/apparel/Hero.jsx'
+import SuccessStories from '../../../components/apparel/SuccessStories.jsx'
+import JourneySection from '../../../components/apparel/JourneySection.jsx'
+import CTASection from '../../../components/apparel/CTASection.jsx'
+import FAQ from '../../../components/apparel/FAQ.jsx'
 
 export default function Page() {
 
