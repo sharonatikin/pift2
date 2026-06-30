@@ -4,7 +4,9 @@
 
 @layer base {
   body {
-    @apply bg-[#0A0A0A] text-white;
+    /* Map body utilities dynamically to the core CSS variables */
+    background-color: var(--page-bg);
+    color: var(--text-main);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
@@ -13,12 +15,47 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0A0A0A;
+  background: var(--page-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #222222;
+  background: var(--border-color);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF4141;
+  background: var(--accent-color);
+}
+
+/* =========================================================
+   THEMES: Default (Dark Crimson) vs Alternate (Light Sapphire)
+   ========================================================= */
+
+:root {
+  --page-bg: #09090b;
+  --card-bg: rgba(17, 17, 17, 0.4);
+  --card-bg-hover: rgba(17, 17, 17, 0.7);
+  --nav-bg: #111111;
+  --dropdown-bg: #1a1a1a;
+  --border-color: #27272a; /* zinc-800 */
+  --accent-color: #C5162E;
+  --accent-hover: #a31225;
+  --text-main: #ffffff;
+  --text-muted: #a8a29e; /* stone-400 */
+  --text-subtle: #78716c; /* stone-500 */
+}
+
+/* Class-driven selector or attribute matching next-themes configuration */
+.light, [data-theme='light'] {
+  --page-bg: #fbfbfb;
+  --card-bg: #EAA0A0;
+  --card-bg-hover: rgba(228, 228, 231, 0.8);
+  --nav-bg: #ffffff;
+  --dropdown-bg: #f4f4f5; /* zinc-100 */
+  --border-color: #e4e4e7; /* zinc-200 */
+  --accent-color: #C5162E; /* blue-700 */
+  --accent-hover: #a31225; /* blue-800 */
+  --text-main: #09090b; /* zinc-950 */
+  --text-muted: #EAA0A0; /* zinc-600 */
+  --text-subtle: #c73232; /* zinc-500 */
+  
+
 }

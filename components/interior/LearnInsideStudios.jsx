@@ -1,11 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useTheme } from 'next-themes';
 
 const studioImages = [
   {
-    src: 'https://images.unsplash.com/photo-1545204445-0245087771ed?q=80&w=1000&auto=format&fit=crop',
+    src: '/images/inetirior-img1.png',
     alt: 'Designer working on a laptop inside a modern wood-paneled focus booth studio micro-office',
   },
   {
@@ -26,12 +27,34 @@ const pillars = [
 ];
 
 export default function LearnInsideStudios() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === 'dark';
+
+  // Standalone inline design tokens mapped component-side
+  const theme = {
+    bgPage: isDark ? 'bg-black' : 'bg-[#fbfbfb]',
+    textMain: isDark ? 'text-white' : 'text-[#09090b]',
+    cardBg: isDark ? 'bg-[#0A0A0B]' : 'bg-white',
+    cardBorder: isDark ? 'border-[#141416]' : 'border-neutral-200/80',
+    cardHoverBg: isDark ? 'hover:bg-[#111113]' : 'hover:bg-neutral-50',
+    cardHoverBorder: isDark ? 'hover:border-neutral-800' : 'hover:border-neutral-300',
+    shadow: isDark ? 'shadow-none' : 'shadow-md shadow-neutral-200/30',
+    // Retaining exact red coloring values specified inside your layout graphic
+    accentText: 'text-[#C5162E]'
+  };
+
   return (
-    <section className="bg-black text-white py-20 px-6 sm:py-24 md:py-32 lg:px-16 flex flex-col items-center justify-center">
+    <section className={`${theme.bgPage} ${theme.textMain} py-20 px-6 sm:py-24 md:py-32 lg:px-16 flex flex-col items-center justify-center transition-colors duration-300`}>
       <div className="max-w-7xl w-full mx-auto flex flex-col items-center">
         
         {/* Section Heading */}
-        <h2 className="text-3xl sm:text-4xl md:text-[42px] font-normal tracking-tight text-center text-white mb-16 font-sans">
+        <h2 className="text-3xl sm:text-4xl md:text-[42px] font-normal tracking-tight text-center mb-16 font-sans">
           Learn Inside Professional Design Studios
         </h2>
 
@@ -58,9 +81,9 @@ export default function LearnInsideStudios() {
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="bg-[#0A0A0B] border border-[#141416] rounded-xl py-6 flex items-center justify-center text-center transition-all duration-300 hover:border-neutral-800 hover:bg-[#111113] cursor-default"
+              className={`border rounded-xl py-6 flex items-center justify-center text-center transition-all duration-300 cursor-default ${theme.cardBg} ${theme.cardBorder} ${theme.cardHoverBg} ${theme.cardHoverBorder} ${theme.shadow}`}
             >
-              <span className="text-sm sm:text-base font-normal tracking-wide text-[#E53E3E] font-sans">
+              <span className={`text-sm sm:text-base font-medium tracking-wide font-sans ${theme.accentText}`}>
                 {pillar.name}
               </span>
             </div>

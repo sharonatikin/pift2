@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 const coreFeatures = [
   {
@@ -31,16 +32,42 @@ const coreFeatures = [
 ];
 
 export default function WhyChooseSection() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === 'dark';
+
+  // Central isolated theme styling token map mapping 1:1 against template properties
+  const theme = {
+    bgPage: isDark ? 'bg-[#0B0A0A]' : 'bg-[#fbfbfb]',
+    textMain: isDark ? 'text-white' : 'text-[#09090b]',
+    textMuted: isDark ? 'text-neutral-400' : 'text-neutral-600',
+    
+    // Feature card design tokens
+    cardBg: isDark ? 'bg-[#141313]' : 'bg-white',
+    cardBorder: isDark ? 'border-neutral-900' : 'border-neutral-200/80',
+    cardBorderHover: isDark ? 'hover:border-neutral-800' : 'hover:border-neutral-300',
+    cardBgHover: isDark ? 'hover:bg-[#1a1919]' : 'hover:bg-neutral-50/40',
+    shadow: isDark ? 'shadow-none' : 'shadow-sm shadow-neutral-100/70',
+
+    // Theme branding colors
+    brandRed: 'text-[#D90429]'
+  };
+
   return (
-    <section className="w-full bg-[#0B0A0A] text-white py-20 px-4 sm:px-6 lg:px-8 font-sans antialiased flex flex-col items-center justify-center">
+    <section className={`w-full py-20 px-4 sm:px-6 lg:px-8 font-sans antialiased flex flex-col items-center justify-center transition-colors duration-300 ${theme.bgPage} ${theme.textMain}`}>
       <div className="max-w-7xl w-full mx-auto text-center">
         
         {/* Header Titles */}
         <div className="space-y-2 mb-14 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-[46px] font-serif font-normal text-white tracking-tight leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-[46px] font-serif font-normal tracking-tight leading-tight">
             Why Choose
           </h2>
-          <p className="text-[#D90429] text-4xl sm:text-5xl md:text-[62px] font-serif italic font-normal tracking-wide leading-none">
+          <p className={`text-4xl sm:text-5xl md:text-[62px] font-serif italic font-normal tracking-wide leading-none ${theme.brandRed}`}>
             What Makes Us Different?
           </p>
         </div>
@@ -50,15 +77,15 @@ export default function WhyChooseSection() {
           {coreFeatures.map((feature) => (
             <div
               key={feature.id}
-              className="bg-[#141313] border border-neutral-900 rounded-2xl p-6 md:p-7 text-left flex flex-col justify-start transition-all duration-300 hover:border-neutral-800 hover:bg-[#1a1919] group"
+              className={`border p-6 md:p-7 text-left flex flex-col justify-start transition-all duration-300 rounded-2xl group-hover:text-[#D90429] ${theme.cardBg} ${theme.cardBorder} ${theme.cardBorderHover} ${theme.cardBgHover} ${theme.shadow} group`}
             >
               {/* Feature Title */}
-              <h3 className="text-lg md:text-xl font-serif font-normal text-white tracking-tight leading-snug mb-4 group-hover:text-[#D90429] transition-colors duration-300">
+              <h3 className="text-lg md:text-xl font-serif font-normal tracking-tight leading-snug mb-4 group-hover:text-[#D90429] transition-colors duration-300">
                 {feature.title}
               </h3>
               
               {/* Feature Description */}
-              <p className="text-neutral-400 text-xs sm:text-sm font-light leading-relaxed tracking-normal">
+              <p className={`text-xs sm:text-sm font-light leading-relaxed tracking-normal transition-colors duration-300 ${theme.textMuted}`}>
                 {feature.description}
               </p>
             </div>

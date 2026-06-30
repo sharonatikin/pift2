@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 const testimonials = [
@@ -25,18 +26,44 @@ const testimonials = [
 ];
 
 export default function SuccessStories() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => { setMounted(true); }, []);
+  const isDark = mounted && resolvedTheme === 'dark';
+
+  // Centralized design tokens
+  const theme = {
+    bgPage: isDark ? 'bg-[#050505]' : 'bg-[#fbfbfb]',
+    textMain: isDark ? 'text-white' : 'text-[#09090b]',
+    textQuote: isDark ? 'text-gray-400' : 'text-neutral-600',
+    textRole: 'text-[#E5333B]',
+    
+    // Grid cards dynamic styling
+    cardBg: isDark ? 'bg-[#140c0d]/60' : 'bg-[#F0C9CB]',
+    cardBorder: isDark ? 'border-white/[0.04]' : 'border-[#E3B2B4]',
+    cardHover: isDark ? 'hover:bg-[#1c1213]/70 hover:border-white/[0.08]' : 'hover:bg-[#EBB4B6] hover:border-[#D69CA2]',
+    
+    // Backdrop gradients
+    ambientGlow: isDark 
+      ? 'bg-[radial-gradient(circle_at_center,_#24080b_0%,_#050505_70%)]' 
+      : 'bg-[radial-gradient(circle_at_center,_#F0C9CB_0%,_#fbfbfb_70%)]'
+  };
+
   return (
-    <section className="relative min-h-screen bg-[#050505] text-white flex flex-col justify-center items-center px-6 py-20 md:py-32 selection:bg-[#E5333B]/20 overflow-hidden">
-      {/* Ambient background glow to match the exact vignetted/gradient feel */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#24080b_0%,_#050505_70%)] opacity-70 pointer-events-none" />
+    <section className={`relative min-h-screen flex flex-col justify-center items-center px-6 py-20 md:py-32 transition-colors duration-300 ${theme.bgPage}`}>
+      
+      {/* Ambient background glow */}
+      <div className={`absolute inset-0 opacity-70 pointer-events-none ${theme.ambientGlow}`} />
 
       <div className="relative z-10 max-w-[1200px] w-full mx-auto space-y-16 md:space-y-24">
+        
         {/* Section Heading */}
         <div className="text-center space-y-1">
-          <h2 className="font-serif italic text-[#E5333B] text-4xl md:text-[54px] font-medium tracking-wide leading-none">
+          <h2 className={`font-serif italic text-4xl md:text-[54px] font-medium tracking-wide leading-none ${theme.accentRed}`}>
             Success
           </h2>
-          <p className="font-serif text-white text-5xl md:text-[64px] font-normal tracking-wide leading-none">
+          <p className={`font-serif text-5xl md:text-[64px] font-normal tracking-wide leading-none transition-colors duration-300 ${theme.textMain}`}>
             Stories
           </p>
         </div>
@@ -46,10 +73,10 @@ export default function SuccessStories() {
           {testimonials.map((item, index) => (
             <div
               key={index}
-              className="relative bg-[#140c0d]/60 backdrop-blur-sm border border-white/[0.04] rounded-[24px] p-8 md:p-10 flex flex-col items-start transition-all duration-300 hover:border-white/[0.08] hover:bg-[#1c1213]/70 group"
+              className={`relative backdrop-blur-sm border rounded-[24px] p-8 md:p-10 flex flex-col items-start transition-all duration-300 group ${theme.cardBg} ${theme.cardBorder} ${theme.cardHover}`}
             >
-              {/* Avatar Circle Container */}
-              <div className="relative w-16 h-16 rounded-full overflow-hidden mb-8 border border-white/10 group-hover:border-[#E5333B]/40 transition-colors duration-300">
+              {/* Avatar */}
+              <div className="relative w-16 h-16 rounded-full overflow-hidden mb-8 border border-white/10 transition-colors duration-300">
                 <Image
                   src={item.image}
                   alt={item.name}
@@ -61,16 +88,16 @@ export default function SuccessStories() {
 
               {/* Identity */}
               <div className="space-y-1.5 mb-6">
-                <h3 className="font-serif text-xl font-medium tracking-wide text-white">
+                <h3 className={`font-serif text-xl font-medium tracking-wide transition-colors duration-300 ${theme.textMain}`}>
                   {item.name}
                 </h3>
-                <p className="text-[#E5333B] text-[13px] font-medium tracking-wide">
+                <p className={`text-[13px] font-medium tracking-wide ${theme.textRole}`}>
                   {item.role}
                 </p>
               </div>
 
               {/* Quote Text */}
-              <p className="text-gray-400 text-[15px] leading-relaxed font-normal tracking-wide">
+              <p className={`text-[15px] leading-relaxed font-normal tracking-wide transition-colors duration-300 ${theme.textQuote}`}>
                 {item.quote}
               </p>
             </div>

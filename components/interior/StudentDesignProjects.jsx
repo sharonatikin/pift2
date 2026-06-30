@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 const projectShowcase = [
@@ -31,12 +32,31 @@ const projectShowcase = [
 ];
 
 export default function StudentDesignProjects() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === 'dark';
+
+  // Component-isolated standalone theme styling configurations
+  const theme = {
+    bgPage: isDark ? 'bg-black' : 'bg-[#fbfbfb]',
+    textMain: isDark ? 'text-white' : 'text-[#09090b]',
+    cardContainerBg: isDark ? 'bg-[#0E0E10]' : 'bg-neutral-100',
+    cardRing: isDark ? 'ring-white/10' : 'ring-neutral-900/5',
+    shadow: isDark ? 'shadow-2xl shadow-neutral-950/60' : 'shadow-lg shadow-neutral-200/50',
+    imageFilter: isDark ? 'group-hover:brightness-110' : 'group-hover:brightness-95'
+  };
+
   return (
-    <section className="bg-black text-white py-20 px-6 sm:py-24 md:py-32 lg:px-16 flex flex-col items-center justify-center">
+    <section className={`${theme.bgPage} ${theme.textMain} py-20 px-6 sm:py-24 md:py-32 lg:px-16 flex flex-col items-center justify-center transition-colors duration-300`}>
       <div className="max-w-7xl w-full mx-auto flex flex-col items-center">
         
         {/* Section Title */}
-        <h2 className="text-3xl sm:text-4xl md:text-[42px] font-normal tracking-tight text-center text-white mb-16 font-sans">
+        <h2 className="text-3xl sm:text-4xl md:text-[42px] font-normal tracking-tight text-center mb-16 font-sans">
           Student Design Projects
         </h2>
 
@@ -45,17 +65,17 @@ export default function StudentDesignProjects() {
           {projectShowcase.map((project, index) => (
             <div
               key={index}
-              className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-neutral-950/60 bg-[#0E0E10] group"
+              className={`relative aspect-square rounded-2xl overflow-hidden ${theme.cardContainerBg} ${theme.shadow} group transition-all duration-300`}
             >
               <Image
                 src={project.src}
                 alt={project.alt}
                 fill
-                className="object-cover object-center transition-all duration-500 ease-out group-hover:scale-105 group-hover:brightness-110"
+                className={`object-cover object-center transition-all duration-500 ease-out group-hover:scale-105 ${theme.imageFilter}`}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
               {/* Subtle inner overlay boundary shadow */}
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+              <div className={`absolute inset-0 ring-1 ring-inset ${theme.cardRing} rounded-2xl pointer-events-none transition-colors duration-300`} />
             </div>
           ))}
         </div>
