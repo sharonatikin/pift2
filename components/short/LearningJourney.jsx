@@ -14,16 +14,13 @@ export default function LearningJourney() {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[#050101] bg-gradient-to-b from-[#0a0202] via-[#050101] to-[#0d0404] px-6 py-24 md:px-12 flex flex-col items-center justify-center overflow-hidden">
-      {/* Soft dark red radial ambient vignette mimicking the glowing lower matrix backdrop */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#ff2a2a]/10 rounded-full blur-[120px] pointer-events-none select-none" />
-
-      <div className="w-full max-w-xl mx-auto flex flex-col items-center relative z-10">
+    <section className="w-full bg-pageBg px-6 py-24 md:px-12 flex flex-col items-center justify-center transition-colors duration-300">
+      <div className="w-full max-w-xl mx-auto flex flex-col items-center">
         
         {/* Main Serif Header */}
         <div className="text-center mb-16">
-          <h2 className="text-white text-4xl sm:text-5xl lg:text-[52px] font-normal font-serif tracking-tight leading-tight">
-            Your <span className="text-[#ff2a2a] italic font-serif font-medium tracking-wide">Learning</span> <br />
+          <h2 className="text-textMain text-4xl sm:text-5xl lg:text-[52px] font-normal font-serif tracking-tight leading-tight">
+            Your <span className="text-accent italic font-serif font-medium tracking-wide">Learning</span> <br />
             Journey
           </h2>
         </div>
@@ -35,28 +32,27 @@ export default function LearningJourney() {
 
             return (
               <React.Fragment key={step.id}>
-                {/* Horizontal Flow Card Container */}
-                <div className="group w-full max-w-[340px] sm:max-w-[380px] bg-[#110707]/70 border border-zinc-950 rounded-xl p-4 flex items-center gap-6 transition-all duration-300 hover:bg-[#160a0a]/90 hover:border-zinc-900 shadow-xl">
+                {/* Horizontal Flow Item */}
+                <div className="w-full max-w-[340px] flex items-center gap-6">
                   
-                  {/* Rounded Numeric Pill Unit */}
-                  <div className="w-11 h-10 rounded-lg bg-[#240a0a] border border-[#ff2a2a]/10 flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-105">
-                    <span className="text-[#ff2a2a] text-sm font-sans font-bold tracking-wider">
+                  {/* Numeric Pill Unit */}
+                  <div className="w-12 h-10 rounded-lg bg-[#fff0f0] dark:bg-[#290a0a] flex items-center justify-center shrink-0 border border-accent/20">
+                    <span className="text-accent text-sm font-sans font-bold tracking-wider">
                       {step.id}
                     </span>
                   </div>
 
-                  {/* Serif Description Label */}
+                  {/* Serif Label */}
                   <div className="flex-1">
-                    <h3 className="text-zinc-200 group-hover:text-white transition-colors duration-200 text-base sm:text-[17px] font-normal font-serif tracking-wide">
+                    <h3 className="text-textMain text-base sm:text-[17px] font-normal font-serif tracking-wide">
                       {step.title}
                     </h3>
                   </div>
-
                 </div>
 
-                {/* Tailored Flow Direction Connector Line */}
+                {/* Flow Direction Connector Line */}
                 {!isLast && (
-                  <div className="my-4 flex flex-col items-center text-[#ff2a2a]/50 animated-pulse">
+                  <div className="my-4 flex flex-col items-center text-accent">
                     <ArrowDown className="w-4 h-4 stroke-[2]" />
                   </div>
                 )}

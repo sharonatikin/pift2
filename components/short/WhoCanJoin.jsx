@@ -10,67 +10,61 @@ import {
 
 export default function WhoCanJoin() {
   const targets = [
-    {
-      icon: GraduationCap,
-      title: 'Students',
-      description: 'High school and college students looking to explore fashion design and build foundational skills.',
+    { 
+      icon: GraduationCap, 
+      title: 'Students', 
+      description: 'High school and college students looking to explore fashion design and build foundational skills.' 
     },
-    {
-      icon: Briefcase,
-      title: 'Working Professionals',
-      description: 'Professionals seeking to transition into the fashion industry or add new skills to their repertoire.',
+    { 
+      icon: Briefcase, 
+      title: 'Working Professionals', 
+      description: 'Professionals seeking to transition into the fashion industry or add new skills to their repertoire.' 
     },
-    {
-      icon: Store,
-      title: 'Boutique Owners',
-      description: 'Entrepreneurs who want to understand design, production, and styling for their fashion businesses.',
+    { 
+      icon: Store, 
+      title: 'Boutique Owners', 
+      description: 'Entrepreneurs who want to understand design, production, and styling for their fashion businesses.' 
     },
-    {
-      icon: Heart,
-      title: 'Fashion Enthusiasts',
-      description: 'Anyone passionate about fashion who wants to learn design skills and explore their creativity.',
+    { 
+      icon: Heart, 
+      title: 'Fashion Enthusiasts', 
+      description: 'Anyone passionate about fashion who wants to learn design skills and explore their creativity.' 
     },
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[#050101] bg-gradient-to-b from-[#080202] via-[#050101] to-[#030000] px-6 py-24 md:px-12 flex flex-col items-center justify-center overflow-hidden">
-      {/* Precision ambient soft red background glow behind the grid layout */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[500px] bg-[#ff2a2a]/10 rounded-full blur-[140px] pointer-events-none select-none z-0" />
-
-      <div className="max-w-4xl w-full mx-auto flex flex-col items-center relative z-10">
+    <section className="w-full bg-pageBg px-6 py-24 md:px-12 flex flex-col items-center justify-center transition-colors duration-300">
+      <div className="max-w-4xl w-full mx-auto flex flex-col items-center">
         
         {/* Mixed Typography Header Block */}
         <div className="text-center mb-16 max-w-xl">
-          <h2 className="text-white text-4xl sm:text-5xl lg:text-[54px] font-normal font-serif tracking-tight leading-[1.2]">
+          <h2 className="text-textMain text-4xl sm:text-5xl lg:text-[54px] font-normal font-serif tracking-tight leading-[1.2]">
             Who Is This <br />
-            <span className="text-[#ff2a2a] italic font-serif font-medium tracking-wide block mt-1">Program</span>
+            <span className="text-accent italic font-serif font-medium tracking-wide block mt-1">Program</span>
             For?
           </h2>
         </div>
 
-        {/* 2x2 Clean Balanced Symmetrical Grid Grid Array */}
+        {/* 2x2 Clean Balanced Symmetrical Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
           {targets.map((target, index) => {
             const IconComponent = target.icon;
             return (
               <div
                 key={index}
-                className="group relative bg-[#110707]/60 border border-zinc-900/50 hover:bg-[#160a0a]/80 hover:border-zinc-800/80 rounded-2xl p-8 pt-10 pb-9 flex flex-col items-center text-center transition-all duration-300 shadow-xl backdrop-blur-xs"
+                className="group bg-pageBg border border-brandBorder rounded-3xl p-8 pt-10 pb-9 flex flex-col items-center text-center transition-all duration-300 hover:shadow-lg"
               >
-                {/* Subtle internal radial light response on hover block */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#ff2a2a]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none" />
-
-                {/* Rounded Icon Squircle Frame Container */}
-                <div className="w-12 h-12 rounded-xl bg-[#240a0a] border border-[#ff2a2a]/10 flex items-center justify-center text-[#ff2a2a] mb-6 transition-transform duration-300 group-hover:scale-105 group-hover:bg-[#2c0d0d]">
-                  <IconComponent className="w-[22px] h-[22px] stroke-[1.75]" />
+                {/* Rounded Icon Badge */}
+                <div className="w-14 h-14 rounded-2xl bg-[#fff0f0] dark:bg-[#290a0a] flex items-center justify-center text-accent mb-8 border border-accent/20 transition-transform duration-300 group-hover:scale-105">
+                  <IconComponent className="w-6 h-6 stroke-[1.5]" />
                 </div>
 
-                {/* Typography Wrapper Items */}
+                {/* Typography Wrapper */}
                 <div className="space-y-3 w-full">
-                  <h3 className="text-zinc-100 text-[19px] font-normal font-serif tracking-wide leading-snug group-hover:text-white transition-colors duration-200">
+                  <h3 className="text-textMain text-[19px] font-normal font-serif tracking-wide leading-snug">
                     {target.title}
                   </h3>
-                  <p className="text-zinc-500 text-[13px] font-normal font-sans leading-relaxed tracking-wide max-w-[290px] mx-auto group-hover:text-zinc-400 transition-colors duration-200">
+                  <p className="text-textMuted text-[13px] font-normal font-sans leading-relaxed tracking-wide max-w-[290px] mx-auto">
                     {target.description}
                   </p>
                 </div>
@@ -78,7 +72,6 @@ export default function WhoCanJoin() {
             );
           })}
         </div>
-
       </div>
     </section>
   );
